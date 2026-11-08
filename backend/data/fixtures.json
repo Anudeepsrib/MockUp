@@ -1,0 +1,1947 @@
+{
+  "sources": [
+    {
+      "id": "local",
+      "name": "Local files",
+      "kind": "upload",
+      "detail": "CSV, PDF, Excel, JSON & more",
+      "color": "#536579",
+      "category": "Files",
+      "count": "6 files"
+    },
+    {
+      "id": "databricks",
+      "name": "Databricks",
+      "kind": "layers",
+      "detail": "Lakehouse & Delta tables",
+      "color": "#ec6143",
+      "category": "Structured",
+      "count": "8 tables"
+    },
+    {
+      "id": "snowflake",
+      "name": "Snowflake",
+      "kind": "snow",
+      "detail": "Cloud data warehouse",
+      "color": "#29a8dd",
+      "category": "Structured",
+      "count": "12 tables"
+    },
+    {
+      "id": "sharepoint",
+      "name": "SharePoint",
+      "kind": "share",
+      "detail": "Documents, sites & team knowledge",
+      "color": "#008b8d",
+      "category": "Unstructured",
+      "count": "148 documents"
+    },
+    {
+      "id": "azure",
+      "name": "Azure Blob Storage",
+      "kind": "box",
+      "detail": "Object storage & data lakes",
+      "color": "#087cce",
+      "category": "Unstructured",
+      "count": "32 objects"
+    },
+    {
+      "id": "postgres",
+      "name": "PostgreSQL",
+      "kind": "database",
+      "detail": "Relational databases",
+      "color": "#336791",
+      "category": "Structured",
+      "count": "6 tables"
+    },
+    {
+      "id": "s3",
+      "name": "Amazon S3",
+      "kind": "box",
+      "detail": "Buckets & object storage",
+      "color": "#cf7b16",
+      "category": "Unstructured",
+      "count": "24 objects"
+    },
+    {
+      "id": "sqlserver",
+      "name": "SQL Server",
+      "kind": "database",
+      "detail": "Enterprise relational data",
+      "color": "#bb4742",
+      "category": "Structured",
+      "count": "9 tables"
+    },
+    {
+      "id": "oracle",
+      "name": "Oracle",
+      "kind": "database",
+      "detail": "Enterprise databases",
+      "color": "#c24d3b",
+      "category": "Structured",
+      "count": "7 tables"
+    },
+    {
+      "id": "salesforce",
+      "name": "Salesforce",
+      "kind": "cloud",
+      "detail": "CRM, accounts & opportunities",
+      "color": "#009cda",
+      "category": "Structured",
+      "count": "5 objects"
+    },
+    {
+      "id": "bigquery",
+      "name": "BigQuery",
+      "kind": "database",
+      "detail": "Google Cloud analytics",
+      "color": "#4779d7",
+      "category": "Structured",
+      "count": "10 tables"
+    },
+    {
+      "id": "redshift",
+      "name": "Amazon Redshift",
+      "kind": "database",
+      "detail": "Cloud analytics warehouse",
+      "color": "#8a58af",
+      "category": "Structured",
+      "count": "8 tables"
+    },
+    {
+      "id": "gdrive",
+      "name": "Google Drive",
+      "kind": "folder",
+      "detail": "Shared files & documents",
+      "color": "#48956b",
+      "category": "Unstructured",
+      "count": "45 documents"
+    },
+    {
+      "id": "confluence",
+      "name": "Confluence",
+      "kind": "file",
+      "detail": "Spaces, pages & team wikis",
+      "color": "#2671cf",
+      "category": "Unstructured",
+      "count": "37 pages"
+    },
+    {
+      "id": "servicenow",
+      "name": "ServiceNow",
+      "kind": "workflow",
+      "detail": "Incidents & service knowledge",
+      "color": "#5a886b",
+      "category": "Structured",
+      "count": "4 tables"
+    },
+    {
+      "id": "mongodb",
+      "name": "MongoDB",
+      "kind": "database",
+      "detail": "Document collections",
+      "color": "#38954c",
+      "category": "Structured",
+      "count": "6 collections"
+    },
+    {
+      "id": "sftp",
+      "name": "SFTP",
+      "kind": "folder",
+      "detail": "Secure file transfer",
+      "color": "#65768a",
+      "category": "Files",
+      "count": "12 files"
+    },
+    {
+      "id": "rest",
+      "name": "REST API",
+      "kind": "workflow",
+      "detail": "Custom enterprise endpoints",
+      "color": "#7c62aa",
+      "category": "Structured",
+      "count": "3 endpoints"
+    },
+    {
+      "id": "mcp-databricks",
+      "name": "Databricks MCP",
+      "kind": "workflow",
+      "detail": "SQL tools & lakehouse resources",
+      "color": "#df694d",
+      "category": "MCP",
+      "count": "12 tools"
+    },
+    {
+      "id": "mcp-sharepoint",
+      "name": "SharePoint MCP",
+      "kind": "workflow",
+      "detail": "Documents, search & team context",
+      "color": "#168c8e",
+      "category": "MCP",
+      "count": "8 tools"
+    },
+    {
+      "id": "mcp-snowflake",
+      "name": "Snowflake MCP",
+      "kind": "workflow",
+      "detail": "Warehouse tools & semantic views",
+      "color": "#29a8dd",
+      "category": "MCP",
+      "count": "10 tools"
+    },
+    {
+      "id": "mcp-salesforce",
+      "name": "Salesforce MCP",
+      "kind": "workflow",
+      "detail": "Account context & CRM tools",
+      "color": "#009cda",
+      "category": "MCP",
+      "count": "9 tools"
+    }
+  ],
+  "initialConnections": [
+    "local",
+    "databricks",
+    "snowflake",
+    "sharepoint"
+  ],
+  "prompts": [
+    "What’s driving customer churn in the Northeast?",
+    "How is network performance affecting customer experience?",
+    "Where are our biggest revenue opportunities?"
+  ],
+  "answers": {
+    "churn": {
+      "title": "A service experience gap is driving Northeast churn.",
+      "summary": "In the dataset, Northeast churn reached 4.8% this quarter, compared with 3.1% nationally. The strongest signal is repeat service disruption among high-value fiber customers.",
+      "metrics": [
+        [
+          "4.8%",
+          "Northeast churn"
+        ],
+        [
+          "1.7 pp",
+          "Above national rate"
+        ],
+        [
+          "62%",
+          "Had a service incident"
+        ]
+      ],
+      "findings": [
+        "Customers with two or more network incidents are 2.3× more likely to leave.",
+        "Billing-related support contacts increased 18%, creating a second point of friction.",
+        "A targeted outreach program for 1,240 at-risk accounts could protect $1.8M in annual revenue."
+      ],
+      "action": "Prioritize proactive service recovery in Boston and New York, then pair it with a targeted loyalty offer.",
+      "sources": [
+        "customer_360",
+        "network_events",
+        "Retention playbook.pdf"
+      ]
+    },
+    "network": {
+      "title": "Repeat network incidents have the largest experience impact.",
+      "summary": "The network data shows that repeat disruptions, rather than single incidents, correlate most strongly with customer dissatisfaction in the Northeast.",
+      "metrics": [
+        [
+          "99.94%",
+          "Network availability"
+        ],
+        [
+          "2.3×",
+          "Churn risk after incidents"
+        ],
+        [
+          "18%",
+          "More support contacts"
+        ]
+      ],
+      "findings": [
+        "Boston and New York account for 58% of repeat service incidents.",
+        "Customers with two or more incidents show a 21-point lower satisfaction score.",
+        "Proactive outage notifications are associated with 14% fewer follow-up support contacts."
+      ],
+      "action": "Focus remediation on repeat-incident clusters and notify affected customers before they contact support.",
+      "sources": [
+        "network_events",
+        "customer_360",
+        "Service recovery guide.pdf"
+      ]
+    },
+    "revenue": {
+      "title": "Retention and fiber expansion offer the clearest growth path.",
+      "summary": "The account and billing data identifies two practical opportunities: protecting high-value accounts and expanding fiber adoption among eligible households.",
+      "metrics": [
+        [
+          "$1.8M",
+          "Revenue at risk"
+        ],
+        [
+          "1,240",
+          "Priority accounts"
+        ],
+        [
+          "24%",
+          "Fiber upgrade potential"
+        ]
+      ],
+      "findings": [
+        "High-value Northeast accounts with repeat incidents represent $1.8M in annual recurring revenue.",
+        "24% of eligible households in the dataset still use legacy broadband plans.",
+        "Bundled fiber and wireless accounts have 32% lower churn than single-product accounts."
+      ],
+      "action": "Start with a service-led retention campaign, then target eligible customers with a fiber and wireless bundle.",
+      "sources": [
+        "billing_summary",
+        "customer_360",
+        "Growth strategy.pdf"
+      ]
+    }
+  },
+  "agentSteps": [
+    {
+      "at": 0,
+      "name": "Supervisor",
+      "verb": "Planning the investigation",
+      "detail": "Breaking the question into retrieval and analysis tasks.",
+      "icon": "sparkles"
+    },
+    {
+      "at": 2,
+      "name": "Data agent",
+      "verb": "Querying connected tables",
+      "detail": "Reading customer_360, billing_summary and network_events.",
+      "icon": "database"
+    },
+    {
+      "at": 4,
+      "name": "Knowledge agent",
+      "verb": "Retrieving relevant context",
+      "detail": "Searching the Azure AI Search vector index and linked documents.",
+      "icon": "network"
+    },
+    {
+      "at": 6,
+      "name": "Insights agent",
+      "verb": "Cross-checking the evidence",
+      "detail": "Comparing regional patterns and validating source references.",
+      "icon": "chart"
+    },
+    {
+      "at": 8,
+      "name": "Memory agent",
+      "verb": "Extracting useful memories",
+      "detail": "Separating observations, learned patterns and session context.",
+      "icon": "brain"
+    },
+    {
+      "at": 10,
+      "name": "Memory agent",
+      "verb": "Saving a reviewable draft",
+      "detail": "Writing 3 draft records to the Compounding Intelligence bank.",
+      "icon": "check"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Customer intelligence",
+      "description": "Retention signals, service history, and evidence-led recommendations.",
+      "template": {
+        "version": "1",
+        "bank": {
+          "name": "Customer intelligence",
+          "retain_mission": "Retain customer needs, service incidents, revenue signals, and resolved outcomes.",
+          "reflect_mission": "Support customer decisions with verified evidence and source references.",
+          "retain_extraction_mode": "concise",
+          "enable_observations": true,
+          "observations_mission": "Connect repeated service incidents to customer experience and retention.",
+          "disposition_skepticism": 4,
+          "disposition_literalism": 3,
+          "disposition_empathy": 4,
+          "entities_allow_free_form": true
+        },
+        "mental_models": [
+          {
+            "id": "retention-priorities",
+            "name": "Retention priorities",
+            "source_query": "What is driving Northeast churn and which accounts need attention?",
+            "tags": [
+              "customer-intelligence"
+            ],
+            "trigger": {
+              "refresh_after_consolidation": true
+            }
+          }
+        ],
+        "directives": [
+          {
+            "name": "Ground every recommendation",
+            "content": "Cite retained evidence. Separate correlation from causation and identify missing information.",
+            "priority": 10,
+            "is_active": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Network operations",
+      "description": "Incident patterns, remediation decisions, and operational continuity.",
+      "template": {
+        "version": "1",
+        "bank": {
+          "name": "Network operations",
+          "retain_mission": "Capture network events, root causes, remediation steps, and customer impact.",
+          "reflect_mission": "Prioritize repeated service issues and cite affected regions.",
+          "retain_extraction_mode": "verbose",
+          "enable_observations": true,
+          "observations_mission": "Consolidate repeat incident patterns by region and service."
+        },
+        "mental_models": [
+          {
+            "id": "network-health",
+            "name": "Network health",
+            "source_query": "How is network performance affecting customer experience?",
+            "trigger": {
+              "refresh_after_consolidation": true
+            }
+          }
+        ],
+        "directives": [
+          {
+            "name": "Operational evidence",
+            "content": "Reference incident records and distinguish resolved from ongoing issues.",
+            "priority": 8,
+            "is_active": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Revenue growth",
+      "description": "Expansion opportunities and account-level commercial context.",
+      "template": {
+        "version": "1",
+        "bank": {
+          "name": "Revenue growth",
+          "retain_mission": "Capture account revenue, eligible products, and expansion opportunities.",
+          "reflect_mission": "Recommend evidence-led retention and growth actions.",
+          "enable_observations": true
+        },
+        "mental_models": [
+          {
+            "id": "growth-opportunities",
+            "name": "Growth opportunities",
+            "source_query": "Where are the strongest fiber revenue opportunities?"
+          }
+        ]
+      }
+    }
+  ],
+  "corpus": [
+    {
+      "id": "ci-context-0-0-0",
+      "type": "Observation",
+      "title": "Boston · Fiber churn · Q1",
+      "content": "Boston, Northeast · Q1 2026. Fiber churn risk is concentrated among accounts with repeat service incidents.",
+      "source": "customer_360",
+      "confidence": 92,
+      "confirmed": true,
+      "savedAt": "2026-01-05T00:00:00.000Z",
+      "question": "What changed in Boston fiber churn?"
+    },
+    {
+      "id": "ci-context-0-0-1",
+      "type": "Observation",
+      "title": "Boston · Fiber churn · Q2",
+      "content": "Boston, Northeast · Q2 2026. Fiber churn risk is concentrated among accounts with repeat service incidents.",
+      "source": "customer_360",
+      "confidence": 92,
+      "confirmed": true,
+      "savedAt": "2026-04-05T00:00:00.000Z",
+      "question": "What changed in Boston fiber churn?"
+    },
+    {
+      "id": "ci-context-0-0-2",
+      "type": "Observation",
+      "title": "Boston · Fiber churn · Q3",
+      "content": "Boston, Northeast · Q3 2026. Fiber churn risk is concentrated among accounts with repeat service incidents.",
+      "source": "customer_360",
+      "confidence": 92,
+      "confirmed": true,
+      "savedAt": "2026-07-05T00:00:00.000Z",
+      "question": "What changed in Boston fiber churn?"
+    },
+    {
+      "id": "ci-context-0-1-0",
+      "type": "Observation",
+      "title": "Boston · Network availability · Q1",
+      "content": "Boston, Northeast · Q1 2026. Network availability is 99.94%; repeat disruptions require proactive remediation.",
+      "source": "network_events",
+      "confidence": 93,
+      "confirmed": true,
+      "savedAt": "2026-01-08T00:00:00.000Z",
+      "question": "What changed in Boston network availability?"
+    },
+    {
+      "id": "ci-context-0-1-1",
+      "type": "Observation",
+      "title": "Boston · Network availability · Q2",
+      "content": "Boston, Northeast · Q2 2026. Network availability is 99.94%; repeat disruptions require proactive remediation.",
+      "source": "network_events",
+      "confidence": 93,
+      "confirmed": true,
+      "savedAt": "2026-04-08T00:00:00.000Z",
+      "question": "What changed in Boston network availability?"
+    },
+    {
+      "id": "ci-context-0-1-2",
+      "type": "Observation",
+      "title": "Boston · Network availability · Q3",
+      "content": "Boston, Northeast · Q3 2026. Network availability is 99.94%; repeat disruptions require proactive remediation.",
+      "source": "network_events",
+      "confidence": 93,
+      "confirmed": true,
+      "savedAt": "2026-07-08T00:00:00.000Z",
+      "question": "What changed in Boston network availability?"
+    },
+    {
+      "id": "ci-context-0-2-0",
+      "type": "Observation",
+      "title": "Boston · Revenue protection · Q1",
+      "content": "Boston, Northeast · Q1 2026. High-value Fiber accounts need service recovery before loyalty outreach.",
+      "source": "billing_summary",
+      "confidence": 94,
+      "confirmed": true,
+      "savedAt": "2026-01-11T00:00:00.000Z",
+      "question": "What changed in Boston revenue protection?"
+    },
+    {
+      "id": "ci-context-0-2-1",
+      "type": "Observation",
+      "title": "Boston · Revenue protection · Q2",
+      "content": "Boston, Northeast · Q2 2026. High-value Fiber accounts need service recovery before loyalty outreach.",
+      "source": "billing_summary",
+      "confidence": 94,
+      "confirmed": true,
+      "savedAt": "2026-04-11T00:00:00.000Z",
+      "question": "What changed in Boston revenue protection?"
+    },
+    {
+      "id": "ci-context-0-2-2",
+      "type": "Observation",
+      "title": "Boston · Revenue protection · Q3",
+      "content": "Boston, Northeast · Q3 2026. High-value Fiber accounts need service recovery before loyalty outreach.",
+      "source": "billing_summary",
+      "confidence": 94,
+      "confirmed": true,
+      "savedAt": "2026-07-11T00:00:00.000Z",
+      "question": "What changed in Boston revenue protection?"
+    },
+    {
+      "id": "ci-context-0-3-0",
+      "type": "Observation",
+      "title": "Boston · Support experience · Q1",
+      "content": "Boston, Northeast · Q1 2026. Billing contacts and repeat Network incidents are linked to lower satisfaction.",
+      "source": "support_tickets",
+      "confidence": 95,
+      "confirmed": true,
+      "savedAt": "2026-01-14T00:00:00.000Z",
+      "question": "What changed in Boston support experience?"
+    },
+    {
+      "id": "ci-context-0-3-1",
+      "type": "Observation",
+      "title": "Boston · Support experience · Q2",
+      "content": "Boston, Northeast · Q2 2026. Billing contacts and repeat Network incidents are linked to lower satisfaction.",
+      "source": "support_tickets",
+      "confidence": 95,
+      "confirmed": true,
+      "savedAt": "2026-04-14T00:00:00.000Z",
+      "question": "What changed in Boston support experience?"
+    },
+    {
+      "id": "ci-context-0-3-2",
+      "type": "Observation",
+      "title": "Boston · Support experience · Q3",
+      "content": "Boston, Northeast · Q3 2026. Billing contacts and repeat Network incidents are linked to lower satisfaction.",
+      "source": "support_tickets",
+      "confidence": 95,
+      "confirmed": true,
+      "savedAt": "2026-07-14T00:00:00.000Z",
+      "question": "What changed in Boston support experience?"
+    },
+    {
+      "id": "ci-context-0-4-0",
+      "type": "Observation",
+      "title": "Boston · Service recovery · Q1",
+      "content": "Boston, Northeast · Q1 2026. Proactive Network notifications reduce follow-up support contacts.",
+      "source": "Service recovery guide.pdf",
+      "confidence": 96,
+      "confirmed": true,
+      "savedAt": "2026-01-17T00:00:00.000Z",
+      "question": "What changed in Boston service recovery?"
+    },
+    {
+      "id": "ci-context-0-4-1",
+      "type": "Observation",
+      "title": "Boston · Service recovery · Q2",
+      "content": "Boston, Northeast · Q2 2026. Proactive Network notifications reduce follow-up support contacts.",
+      "source": "Service recovery guide.pdf",
+      "confidence": 96,
+      "confirmed": true,
+      "savedAt": "2026-04-17T00:00:00.000Z",
+      "question": "What changed in Boston service recovery?"
+    },
+    {
+      "id": "ci-context-0-4-2",
+      "type": "Observation",
+      "title": "Boston · Service recovery · Q3",
+      "content": "Boston, Northeast · Q3 2026. Proactive Network notifications reduce follow-up support contacts.",
+      "source": "Service recovery guide.pdf",
+      "confidence": 96,
+      "confirmed": true,
+      "savedAt": "2026-07-17T00:00:00.000Z",
+      "question": "What changed in Boston service recovery?"
+    },
+    {
+      "id": "ci-context-0-5-0",
+      "type": "Learned pattern",
+      "title": "Boston · Bundle adoption · Q1",
+      "content": "Boston, Northeast · Q1 2026. Fiber and wireless bundles have lower Churn than single-product accounts.",
+      "source": "Growth strategy.pdf",
+      "confidence": 97,
+      "confirmed": true,
+      "sourceFactIds": [
+        "ci-context-0-0-0",
+        "ci-context-0-1-0",
+        "ci-context-0-2-0",
+        "ci-context-0-3-0",
+        "ci-context-0-4-0"
+      ],
+      "savedAt": "2026-01-20T00:00:00.000Z",
+      "question": "What changed in Boston bundle adoption?"
+    },
+    {
+      "id": "ci-context-0-5-1",
+      "type": "Learned pattern",
+      "title": "Boston · Bundle adoption · Q2",
+      "content": "Boston, Northeast · Q2 2026. Fiber and wireless bundles have lower Churn than single-product accounts.",
+      "source": "Growth strategy.pdf",
+      "confidence": 97,
+      "confirmed": true,
+      "sourceFactIds": [
+        "ci-context-0-0-1",
+        "ci-context-0-1-1",
+        "ci-context-0-2-1",
+        "ci-context-0-3-1",
+        "ci-context-0-4-1"
+      ],
+      "savedAt": "2026-04-20T00:00:00.000Z",
+      "question": "What changed in Boston bundle adoption?"
+    },
+    {
+      "id": "ci-context-0-5-2",
+      "type": "Learned pattern",
+      "title": "Boston · Bundle adoption · Q3",
+      "content": "Boston, Northeast · Q3 2026. Fiber and wireless bundles have lower Churn than single-product accounts.",
+      "source": "Growth strategy.pdf",
+      "confidence": 97,
+      "confirmed": true,
+      "sourceFactIds": [
+        "ci-context-0-0-2",
+        "ci-context-0-1-2",
+        "ci-context-0-2-2",
+        "ci-context-0-3-2",
+        "ci-context-0-4-2"
+      ],
+      "savedAt": "2026-07-20T00:00:00.000Z",
+      "question": "What changed in Boston bundle adoption?"
+    },
+    {
+      "id": "ci-context-1-0-0",
+      "type": "Observation",
+      "title": "New York · Fiber churn · Q1",
+      "content": "New York, Northeast · Q1 2026. Fiber churn risk is concentrated among accounts with repeat service incidents.",
+      "source": "customer_360",
+      "confidence": 93,
+      "confirmed": true,
+      "savedAt": "2026-02-05T00:00:00.000Z",
+      "question": "What changed in New York fiber churn?"
+    },
+    {
+      "id": "ci-context-1-0-1",
+      "type": "Observation",
+      "title": "New York · Fiber churn · Q2",
+      "content": "New York, Northeast · Q2 2026. Fiber churn risk is concentrated among accounts with repeat service incidents.",
+      "source": "customer_360",
+      "confidence": 93,
+      "confirmed": true,
+      "savedAt": "2026-05-05T00:00:00.000Z",
+      "question": "What changed in New York fiber churn?"
+    },
+    {
+      "id": "ci-context-1-0-2",
+      "type": "Observation",
+      "title": "New York · Fiber churn · Q3",
+      "content": "New York, Northeast · Q3 2026. Fiber churn risk is concentrated among accounts with repeat service incidents.",
+      "source": "customer_360",
+      "confidence": 93,
+      "confirmed": true,
+      "savedAt": "2026-08-05T00:00:00.000Z",
+      "question": "What changed in New York fiber churn?"
+    },
+    {
+      "id": "ci-context-1-1-0",
+      "type": "Observation",
+      "title": "New York · Network availability · Q1",
+      "content": "New York, Northeast · Q1 2026. Network availability is 99.94%; repeat disruptions require proactive remediation.",
+      "source": "network_events",
+      "confidence": 94,
+      "confirmed": true,
+      "savedAt": "2026-02-08T00:00:00.000Z",
+      "question": "What changed in New York network availability?"
+    },
+    {
+      "id": "ci-context-1-1-1",
+      "type": "Observation",
+      "title": "New York · Network availability · Q2",
+      "content": "New York, Northeast · Q2 2026. Network availability is 99.94%; repeat disruptions require proactive remediation.",
+      "source": "network_events",
+      "confidence": 94,
+      "confirmed": true,
+      "savedAt": "2026-05-08T00:00:00.000Z",
+      "question": "What changed in New York network availability?"
+    },
+    {
+      "id": "ci-context-1-1-2",
+      "type": "Observation",
+      "title": "New York · Network availability · Q3",
+      "content": "New York, Northeast · Q3 2026. Network availability is 99.94%; repeat disruptions require proactive remediation.",
+      "source": "network_events",
+      "confidence": 94,
+      "confirmed": true,
+      "savedAt": "2026-08-08T00:00:00.000Z",
+      "question": "What changed in New York network availability?"
+    },
+    {
+      "id": "ci-context-1-2-0",
+      "type": "Observation",
+      "title": "New York · Revenue protection · Q1",
+      "content": "New York, Northeast · Q1 2026. High-value Fiber accounts need service recovery before loyalty outreach.",
+      "source": "billing_summary",
+      "confidence": 95,
+      "confirmed": true,
+      "savedAt": "2026-02-11T00:00:00.000Z",
+      "question": "What changed in New York revenue protection?"
+    },
+    {
+      "id": "ci-context-1-2-1",
+      "type": "Observation",
+      "title": "New York · Revenue protection · Q2",
+      "content": "New York, Northeast · Q2 2026. High-value Fiber accounts need service recovery before loyalty outreach.",
+      "source": "billing_summary",
+      "confidence": 95,
+      "confirmed": true,
+      "savedAt": "2026-05-11T00:00:00.000Z",
+      "question": "What changed in New York revenue protection?"
+    },
+    {
+      "id": "ci-context-1-2-2",
+      "type": "Observation",
+      "title": "New York · Revenue protection · Q3",
+      "content": "New York, Northeast · Q3 2026. High-value Fiber accounts need service recovery before loyalty outreach.",
+      "source": "billing_summary",
+      "confidence": 95,
+      "confirmed": true,
+      "savedAt": "2026-08-11T00:00:00.000Z",
+      "question": "What changed in New York revenue protection?"
+    },
+    {
+      "id": "ci-context-1-3-0",
+      "type": "Observation",
+      "title": "New York · Support experience · Q1",
+      "content": "New York, Northeast · Q1 2026. Billing contacts and repeat Network incidents are linked to lower satisfaction.",
+      "source": "support_tickets",
+      "confidence": 96,
+      "confirmed": true,
+      "savedAt": "2026-02-14T00:00:00.000Z",
+      "question": "What changed in New York support experience?"
+    },
+    {
+      "id": "ci-context-1-3-1",
+      "type": "Observation",
+      "title": "New York · Support experience · Q2",
+      "content": "New York, Northeast · Q2 2026. Billing contacts and repeat Network incidents are linked to lower satisfaction.",
+      "source": "support_tickets",
+      "confidence": 96,
+      "confirmed": true,
+      "savedAt": "2026-05-14T00:00:00.000Z",
+      "question": "What changed in New York support experience?"
+    },
+    {
+      "id": "ci-context-1-3-2",
+      "type": "Observation",
+      "title": "New York · Support experience · Q3",
+      "content": "New York, Northeast · Q3 2026. Billing contacts and repeat Network incidents are linked to lower satisfaction.",
+      "source": "support_tickets",
+      "confidence": 96,
+      "confirmed": true,
+      "savedAt": "2026-08-14T00:00:00.000Z",
+      "question": "What changed in New York support experience?"
+    },
+    {
+      "id": "ci-context-1-4-0",
+      "type": "Observation",
+      "title": "New York · Service recovery · Q1",
+      "content": "New York, Northeast · Q1 2026. Proactive Network notifications reduce follow-up support contacts.",
+      "source": "Service recovery guide.pdf",
+      "confidence": 97,
+      "confirmed": true,
+      "savedAt": "2026-02-17T00:00:00.000Z",
+      "question": "What changed in New York service recovery?"
+    },
+    {
+      "id": "ci-context-1-4-1",
+      "type": "Observation",
+      "title": "New York · Service recovery · Q2",
+      "content": "New York, Northeast · Q2 2026. Proactive Network notifications reduce follow-up support contacts.",
+      "source": "Service recovery guide.pdf",
+      "confidence": 97,
+      "confirmed": true,
+      "savedAt": "2026-05-17T00:00:00.000Z",
+      "question": "What changed in New York service recovery?"
+    },
+    {
+      "id": "ci-context-1-4-2",
+      "type": "Observation",
+      "title": "New York · Service recovery · Q3",
+      "content": "New York, Northeast · Q3 2026. Proactive Network notifications reduce follow-up support contacts.",
+      "source": "Service recovery guide.pdf",
+      "confidence": 97,
+      "confirmed": true,
+      "savedAt": "2026-08-17T00:00:00.000Z",
+      "question": "What changed in New York service recovery?"
+    },
+    {
+      "id": "ci-context-1-5-0",
+      "type": "Learned pattern",
+      "title": "New York · Bundle adoption · Q1",
+      "content": "New York, Northeast · Q1 2026. Fiber and wireless bundles have lower Churn than single-product accounts.",
+      "source": "Growth strategy.pdf",
+      "confidence": 98,
+      "confirmed": true,
+      "sourceFactIds": [
+        "ci-context-1-0-0",
+        "ci-context-1-1-0",
+        "ci-context-1-2-0",
+        "ci-context-1-3-0",
+        "ci-context-1-4-0"
+      ],
+      "savedAt": "2026-02-20T00:00:00.000Z",
+      "question": "What changed in New York bundle adoption?"
+    },
+    {
+      "id": "ci-context-1-5-1",
+      "type": "Learned pattern",
+      "title": "New York · Bundle adoption · Q2",
+      "content": "New York, Northeast · Q2 2026. Fiber and wireless bundles have lower Churn than single-product accounts.",
+      "source": "Growth strategy.pdf",
+      "confidence": 98,
+      "confirmed": true,
+      "sourceFactIds": [
+        "ci-context-1-0-1",
+        "ci-context-1-1-1",
+        "ci-context-1-2-1",
+        "ci-context-1-3-1",
+        "ci-context-1-4-1"
+      ],
+      "savedAt": "2026-05-20T00:00:00.000Z",
+      "question": "What changed in New York bundle adoption?"
+    },
+    {
+      "id": "ci-context-1-5-2",
+      "type": "Learned pattern",
+      "title": "New York · Bundle adoption · Q3",
+      "content": "New York, Northeast · Q3 2026. Fiber and wireless bundles have lower Churn than single-product accounts.",
+      "source": "Growth strategy.pdf",
+      "confidence": 98,
+      "confirmed": true,
+      "sourceFactIds": [
+        "ci-context-1-0-2",
+        "ci-context-1-1-2",
+        "ci-context-1-2-2",
+        "ci-context-1-3-2",
+        "ci-context-1-4-2"
+      ],
+      "savedAt": "2026-08-20T00:00:00.000Z",
+      "question": "What changed in New York bundle adoption?"
+    },
+    {
+      "id": "ci-context-2-0-0",
+      "type": "Observation",
+      "title": "Philadelphia · Fiber churn · Q1",
+      "content": "Philadelphia, Northeast · Q1 2026. Fiber churn risk is concentrated among accounts with repeat service incidents.",
+      "source": "customer_360",
+      "confidence": 94,
+      "confirmed": true,
+      "savedAt": "2026-03-05T00:00:00.000Z",
+      "question": "What changed in Philadelphia fiber churn?"
+    },
+    {
+      "id": "ci-context-2-0-1",
+      "type": "Observation",
+      "title": "Philadelphia · Fiber churn · Q2",
+      "content": "Philadelphia, Northeast · Q2 2026. Fiber churn risk is concentrated among accounts with repeat service incidents.",
+      "source": "customer_360",
+      "confidence": 94,
+      "confirmed": true,
+      "savedAt": "2026-06-05T00:00:00.000Z",
+      "question": "What changed in Philadelphia fiber churn?"
+    },
+    {
+      "id": "ci-context-2-0-2",
+      "type": "Observation",
+      "title": "Philadelphia · Fiber churn · Q3",
+      "content": "Philadelphia, Northeast · Q3 2026. Fiber churn risk is concentrated among accounts with repeat service incidents.",
+      "source": "customer_360",
+      "confidence": 94,
+      "confirmed": true,
+      "savedAt": "2026-09-05T00:00:00.000Z",
+      "question": "What changed in Philadelphia fiber churn?"
+    },
+    {
+      "id": "ci-context-2-1-0",
+      "type": "Observation",
+      "title": "Philadelphia · Network availability · Q1",
+      "content": "Philadelphia, Northeast · Q1 2026. Network availability is 99.94%; repeat disruptions require proactive remediation.",
+      "source": "network_events",
+      "confidence": 95,
+      "confirmed": true,
+      "savedAt": "2026-03-08T00:00:00.000Z",
+      "question": "What changed in Philadelphia network availability?"
+    },
+    {
+      "id": "ci-context-2-1-1",
+      "type": "Observation",
+      "title": "Philadelphia · Network availability · Q2",
+      "content": "Philadelphia, Northeast · Q2 2026. Network availability is 99.94%; repeat disruptions require proactive remediation.",
+      "source": "network_events",
+      "confidence": 95,
+      "confirmed": true,
+      "savedAt": "2026-06-08T00:00:00.000Z",
+      "question": "What changed in Philadelphia network availability?"
+    },
+    {
+      "id": "ci-context-2-1-2",
+      "type": "Observation",
+      "title": "Philadelphia · Network availability · Q3",
+      "content": "Philadelphia, Northeast · Q3 2026. Network availability is 99.94%; repeat disruptions require proactive remediation.",
+      "source": "network_events",
+      "confidence": 95,
+      "confirmed": true,
+      "savedAt": "2026-09-08T00:00:00.000Z",
+      "question": "What changed in Philadelphia network availability?"
+    },
+    {
+      "id": "ci-context-2-2-0",
+      "type": "Observation",
+      "title": "Philadelphia · Revenue protection · Q1",
+      "content": "Philadelphia, Northeast · Q1 2026. High-value Fiber accounts need service recovery before loyalty outreach.",
+      "source": "billing_summary",
+      "confidence": 96,
+      "confirmed": true,
+      "savedAt": "2026-03-11T00:00:00.000Z",
+      "question": "What changed in Philadelphia revenue protection?"
+    },
+    {
+      "id": "ci-context-2-2-1",
+      "type": "Observation",
+      "title": "Philadelphia · Revenue protection · Q2",
+      "content": "Philadelphia, Northeast · Q2 2026. High-value Fiber accounts need service recovery before loyalty outreach.",
+      "source": "billing_summary",
+      "confidence": 96,
+      "confirmed": true,
+      "savedAt": "2026-06-11T00:00:00.000Z",
+      "question": "What changed in Philadelphia revenue protection?"
+    },
+    {
+      "id": "ci-context-2-2-2",
+      "type": "Observation",
+      "title": "Philadelphia · Revenue protection · Q3",
+      "content": "Philadelphia, Northeast · Q3 2026. High-value Fiber accounts need service recovery before loyalty outreach.",
+      "source": "billing_summary",
+      "confidence": 96,
+      "confirmed": true,
+      "savedAt": "2026-09-11T00:00:00.000Z",
+      "question": "What changed in Philadelphia revenue protection?"
+    },
+    {
+      "id": "ci-context-2-3-0",
+      "type": "Observation",
+      "title": "Philadelphia · Support experience · Q1",
+      "content": "Philadelphia, Northeast · Q1 2026. Billing contacts and repeat Network incidents are linked to lower satisfaction.",
+      "source": "support_tickets",
+      "confidence": 97,
+      "confirmed": true,
+      "savedAt": "2026-03-14T00:00:00.000Z",
+      "question": "What changed in Philadelphia support experience?"
+    },
+    {
+      "id": "ci-context-2-3-1",
+      "type": "Observation",
+      "title": "Philadelphia · Support experience · Q2",
+      "content": "Philadelphia, Northeast · Q2 2026. Billing contacts and repeat Network incidents are linked to lower satisfaction.",
+      "source": "support_tickets",
+      "confidence": 97,
+      "confirmed": true,
+      "savedAt": "2026-06-14T00:00:00.000Z",
+      "question": "What changed in Philadelphia support experience?"
+    },
+    {
+      "id": "ci-context-2-3-2",
+      "type": "Observation",
+      "title": "Philadelphia · Support experience · Q3",
+      "content": "Philadelphia, Northeast · Q3 2026. Billing contacts and repeat Network incidents are linked to lower satisfaction.",
+      "source": "support_tickets",
+      "confidence": 97,
+      "confirmed": true,
+      "savedAt": "2026-09-14T00:00:00.000Z",
+      "question": "What changed in Philadelphia support experience?"
+    },
+    {
+      "id": "ci-context-2-4-0",
+      "type": "Observation",
+      "title": "Philadelphia · Service recovery · Q1",
+      "content": "Philadelphia, Northeast · Q1 2026. Proactive Network notifications reduce follow-up support contacts.",
+      "source": "Service recovery guide.pdf",
+      "confidence": 98,
+      "confirmed": true,
+      "savedAt": "2026-03-17T00:00:00.000Z",
+      "question": "What changed in Philadelphia service recovery?"
+    },
+    {
+      "id": "ci-context-2-4-1",
+      "type": "Observation",
+      "title": "Philadelphia · Service recovery · Q2",
+      "content": "Philadelphia, Northeast · Q2 2026. Proactive Network notifications reduce follow-up support contacts.",
+      "source": "Service recovery guide.pdf",
+      "confidence": 98,
+      "confirmed": true,
+      "savedAt": "2026-06-17T00:00:00.000Z",
+      "question": "What changed in Philadelphia service recovery?"
+    },
+    {
+      "id": "ci-context-2-4-2",
+      "type": "Observation",
+      "title": "Philadelphia · Service recovery · Q3",
+      "content": "Philadelphia, Northeast · Q3 2026. Proactive Network notifications reduce follow-up support contacts.",
+      "source": "Service recovery guide.pdf",
+      "confidence": 98,
+      "confirmed": true,
+      "savedAt": "2026-09-17T00:00:00.000Z",
+      "question": "What changed in Philadelphia service recovery?"
+    },
+    {
+      "id": "ci-context-2-5-0",
+      "type": "Learned pattern",
+      "title": "Philadelphia · Bundle adoption · Q1",
+      "content": "Philadelphia, Northeast · Q1 2026. Fiber and wireless bundles have lower Churn than single-product accounts.",
+      "source": "Growth strategy.pdf",
+      "confidence": 92,
+      "confirmed": true,
+      "sourceFactIds": [
+        "ci-context-2-0-0",
+        "ci-context-2-1-0",
+        "ci-context-2-2-0",
+        "ci-context-2-3-0",
+        "ci-context-2-4-0"
+      ],
+      "savedAt": "2026-03-20T00:00:00.000Z",
+      "question": "What changed in Philadelphia bundle adoption?"
+    },
+    {
+      "id": "ci-context-2-5-1",
+      "type": "Learned pattern",
+      "title": "Philadelphia · Bundle adoption · Q2",
+      "content": "Philadelphia, Northeast · Q2 2026. Fiber and wireless bundles have lower Churn than single-product accounts.",
+      "source": "Growth strategy.pdf",
+      "confidence": 92,
+      "confirmed": true,
+      "sourceFactIds": [
+        "ci-context-2-0-1",
+        "ci-context-2-1-1",
+        "ci-context-2-2-1",
+        "ci-context-2-3-1",
+        "ci-context-2-4-1"
+      ],
+      "savedAt": "2026-06-20T00:00:00.000Z",
+      "question": "What changed in Philadelphia bundle adoption?"
+    },
+    {
+      "id": "ci-context-2-5-2",
+      "type": "Learned pattern",
+      "title": "Philadelphia · Bundle adoption · Q3",
+      "content": "Philadelphia, Northeast · Q3 2026. Fiber and wireless bundles have lower Churn than single-product accounts.",
+      "source": "Growth strategy.pdf",
+      "confidence": 92,
+      "confirmed": true,
+      "sourceFactIds": [
+        "ci-context-2-0-2",
+        "ci-context-2-1-2",
+        "ci-context-2-2-2",
+        "ci-context-2-3-2",
+        "ci-context-2-4-2"
+      ],
+      "savedAt": "2026-09-20T00:00:00.000Z",
+      "question": "What changed in Philadelphia bundle adoption?"
+    },
+    {
+      "id": "ci-context-3-0-0",
+      "type": "Observation",
+      "title": "Newark · Fiber churn · Q1",
+      "content": "Newark, Northeast · Q1 2026. Fiber churn risk is concentrated among accounts with repeat service incidents.",
+      "source": "customer_360",
+      "confidence": 95,
+      "confirmed": true,
+      "savedAt": "2026-01-05T00:00:00.000Z",
+      "question": "What changed in Newark fiber churn?"
+    },
+    {
+      "id": "ci-context-3-0-1",
+      "type": "Observation",
+      "title": "Newark · Fiber churn · Q2",
+      "content": "Newark, Northeast · Q2 2026. Fiber churn risk is concentrated among accounts with repeat service incidents.",
+      "source": "customer_360",
+      "confidence": 95,
+      "confirmed": true,
+      "savedAt": "2026-04-05T00:00:00.000Z",
+      "question": "What changed in Newark fiber churn?"
+    },
+    {
+      "id": "ci-context-3-0-2",
+      "type": "Observation",
+      "title": "Newark · Fiber churn · Q3",
+      "content": "Newark, Northeast · Q3 2026. Fiber churn risk is concentrated among accounts with repeat service incidents.",
+      "source": "customer_360",
+      "confidence": 95,
+      "confirmed": true,
+      "savedAt": "2026-07-05T00:00:00.000Z",
+      "question": "What changed in Newark fiber churn?"
+    },
+    {
+      "id": "ci-context-3-1-0",
+      "type": "Observation",
+      "title": "Newark · Network availability · Q1",
+      "content": "Newark, Northeast · Q1 2026. Network availability is 99.94%; repeat disruptions require proactive remediation.",
+      "source": "network_events",
+      "confidence": 96,
+      "confirmed": true,
+      "savedAt": "2026-01-08T00:00:00.000Z",
+      "question": "What changed in Newark network availability?"
+    },
+    {
+      "id": "ci-context-3-1-1",
+      "type": "Observation",
+      "title": "Newark · Network availability · Q2",
+      "content": "Newark, Northeast · Q2 2026. Network availability is 99.94%; repeat disruptions require proactive remediation.",
+      "source": "network_events",
+      "confidence": 96,
+      "confirmed": true,
+      "savedAt": "2026-04-08T00:00:00.000Z",
+      "question": "What changed in Newark network availability?"
+    },
+    {
+      "id": "ci-context-3-1-2",
+      "type": "Observation",
+      "title": "Newark · Network availability · Q3",
+      "content": "Newark, Northeast · Q3 2026. Network availability is 99.94%; repeat disruptions require proactive remediation.",
+      "source": "network_events",
+      "confidence": 96,
+      "confirmed": true,
+      "savedAt": "2026-07-08T00:00:00.000Z",
+      "question": "What changed in Newark network availability?"
+    },
+    {
+      "id": "ci-context-3-2-0",
+      "type": "Observation",
+      "title": "Newark · Revenue protection · Q1",
+      "content": "Newark, Northeast · Q1 2026. High-value Fiber accounts need service recovery before loyalty outreach.",
+      "source": "billing_summary",
+      "confidence": 97,
+      "confirmed": true,
+      "savedAt": "2026-01-11T00:00:00.000Z",
+      "question": "What changed in Newark revenue protection?"
+    },
+    {
+      "id": "ci-context-3-2-1",
+      "type": "Observation",
+      "title": "Newark · Revenue protection · Q2",
+      "content": "Newark, Northeast · Q2 2026. High-value Fiber accounts need service recovery before loyalty outreach.",
+      "source": "billing_summary",
+      "confidence": 97,
+      "confirmed": true,
+      "savedAt": "2026-04-11T00:00:00.000Z",
+      "question": "What changed in Newark revenue protection?"
+    },
+    {
+      "id": "ci-context-3-2-2",
+      "type": "Observation",
+      "title": "Newark · Revenue protection · Q3",
+      "content": "Newark, Northeast · Q3 2026. High-value Fiber accounts need service recovery before loyalty outreach.",
+      "source": "billing_summary",
+      "confidence": 97,
+      "confirmed": true,
+      "savedAt": "2026-07-11T00:00:00.000Z",
+      "question": "What changed in Newark revenue protection?"
+    },
+    {
+      "id": "ci-context-3-3-0",
+      "type": "Observation",
+      "title": "Newark · Support experience · Q1",
+      "content": "Newark, Northeast · Q1 2026. Billing contacts and repeat Network incidents are linked to lower satisfaction.",
+      "source": "support_tickets",
+      "confidence": 98,
+      "confirmed": true,
+      "savedAt": "2026-01-14T00:00:00.000Z",
+      "question": "What changed in Newark support experience?"
+    },
+    {
+      "id": "ci-context-3-3-1",
+      "type": "Observation",
+      "title": "Newark · Support experience · Q2",
+      "content": "Newark, Northeast · Q2 2026. Billing contacts and repeat Network incidents are linked to lower satisfaction.",
+      "source": "support_tickets",
+      "confidence": 98,
+      "confirmed": true,
+      "savedAt": "2026-04-14T00:00:00.000Z",
+      "question": "What changed in Newark support experience?"
+    },
+    {
+      "id": "ci-context-3-3-2",
+      "type": "Observation",
+      "title": "Newark · Support experience · Q3",
+      "content": "Newark, Northeast · Q3 2026. Billing contacts and repeat Network incidents are linked to lower satisfaction.",
+      "source": "support_tickets",
+      "confidence": 98,
+      "confirmed": true,
+      "savedAt": "2026-07-14T00:00:00.000Z",
+      "question": "What changed in Newark support experience?"
+    },
+    {
+      "id": "ci-context-3-4-0",
+      "type": "Observation",
+      "title": "Newark · Service recovery · Q1",
+      "content": "Newark, Northeast · Q1 2026. Proactive Network notifications reduce follow-up support contacts.",
+      "source": "Service recovery guide.pdf",
+      "confidence": 92,
+      "confirmed": true,
+      "savedAt": "2026-01-17T00:00:00.000Z",
+      "question": "What changed in Newark service recovery?"
+    },
+    {
+      "id": "ci-context-3-4-1",
+      "type": "Observation",
+      "title": "Newark · Service recovery · Q2",
+      "content": "Newark, Northeast · Q2 2026. Proactive Network notifications reduce follow-up support contacts.",
+      "source": "Service recovery guide.pdf",
+      "confidence": 92,
+      "confirmed": true,
+      "savedAt": "2026-04-17T00:00:00.000Z",
+      "question": "What changed in Newark service recovery?"
+    },
+    {
+      "id": "ci-context-3-4-2",
+      "type": "Observation",
+      "title": "Newark · Service recovery · Q3",
+      "content": "Newark, Northeast · Q3 2026. Proactive Network notifications reduce follow-up support contacts.",
+      "source": "Service recovery guide.pdf",
+      "confidence": 92,
+      "confirmed": true,
+      "savedAt": "2026-07-17T00:00:00.000Z",
+      "question": "What changed in Newark service recovery?"
+    },
+    {
+      "id": "ci-context-3-5-0",
+      "type": "Learned pattern",
+      "title": "Newark · Bundle adoption · Q1",
+      "content": "Newark, Northeast · Q1 2026. Fiber and wireless bundles have lower Churn than single-product accounts.",
+      "source": "Growth strategy.pdf",
+      "confidence": 93,
+      "confirmed": true,
+      "sourceFactIds": [
+        "ci-context-3-0-0",
+        "ci-context-3-1-0",
+        "ci-context-3-2-0",
+        "ci-context-3-3-0",
+        "ci-context-3-4-0"
+      ],
+      "savedAt": "2026-01-20T00:00:00.000Z",
+      "question": "What changed in Newark bundle adoption?"
+    },
+    {
+      "id": "ci-context-3-5-1",
+      "type": "Learned pattern",
+      "title": "Newark · Bundle adoption · Q2",
+      "content": "Newark, Northeast · Q2 2026. Fiber and wireless bundles have lower Churn than single-product accounts.",
+      "source": "Growth strategy.pdf",
+      "confidence": 93,
+      "confirmed": true,
+      "sourceFactIds": [
+        "ci-context-3-0-1",
+        "ci-context-3-1-1",
+        "ci-context-3-2-1",
+        "ci-context-3-3-1",
+        "ci-context-3-4-1"
+      ],
+      "savedAt": "2026-04-20T00:00:00.000Z",
+      "question": "What changed in Newark bundle adoption?"
+    },
+    {
+      "id": "ci-context-3-5-2",
+      "type": "Learned pattern",
+      "title": "Newark · Bundle adoption · Q3",
+      "content": "Newark, Northeast · Q3 2026. Fiber and wireless bundles have lower Churn than single-product accounts.",
+      "source": "Growth strategy.pdf",
+      "confidence": 93,
+      "confirmed": true,
+      "sourceFactIds": [
+        "ci-context-3-0-2",
+        "ci-context-3-1-2",
+        "ci-context-3-2-2",
+        "ci-context-3-3-2",
+        "ci-context-3-4-2"
+      ],
+      "savedAt": "2026-07-20T00:00:00.000Z",
+      "question": "What changed in Newark bundle adoption?"
+    },
+    {
+      "id": "ci-context-4-0-0",
+      "type": "Observation",
+      "title": "Providence · Fiber churn · Q1",
+      "content": "Providence, Northeast · Q1 2026. Fiber churn risk is concentrated among accounts with repeat service incidents.",
+      "source": "customer_360",
+      "confidence": 96,
+      "confirmed": true,
+      "savedAt": "2026-02-05T00:00:00.000Z",
+      "question": "What changed in Providence fiber churn?"
+    },
+    {
+      "id": "ci-context-4-0-1",
+      "type": "Observation",
+      "title": "Providence · Fiber churn · Q2",
+      "content": "Providence, Northeast · Q2 2026. Fiber churn risk is concentrated among accounts with repeat service incidents.",
+      "source": "customer_360",
+      "confidence": 96,
+      "confirmed": true,
+      "savedAt": "2026-05-05T00:00:00.000Z",
+      "question": "What changed in Providence fiber churn?"
+    },
+    {
+      "id": "ci-context-4-0-2",
+      "type": "Observation",
+      "title": "Providence · Fiber churn · Q3",
+      "content": "Providence, Northeast · Q3 2026. Fiber churn risk is concentrated among accounts with repeat service incidents.",
+      "source": "customer_360",
+      "confidence": 96,
+      "confirmed": true,
+      "savedAt": "2026-08-05T00:00:00.000Z",
+      "question": "What changed in Providence fiber churn?"
+    },
+    {
+      "id": "ci-context-4-1-0",
+      "type": "Observation",
+      "title": "Providence · Network availability · Q1",
+      "content": "Providence, Northeast · Q1 2026. Network availability is 99.94%; repeat disruptions require proactive remediation.",
+      "source": "network_events",
+      "confidence": 97,
+      "confirmed": true,
+      "savedAt": "2026-02-08T00:00:00.000Z",
+      "question": "What changed in Providence network availability?"
+    },
+    {
+      "id": "ci-context-4-1-1",
+      "type": "Observation",
+      "title": "Providence · Network availability · Q2",
+      "content": "Providence, Northeast · Q2 2026. Network availability is 99.94%; repeat disruptions require proactive remediation.",
+      "source": "network_events",
+      "confidence": 97,
+      "confirmed": true,
+      "savedAt": "2026-05-08T00:00:00.000Z",
+      "question": "What changed in Providence network availability?"
+    },
+    {
+      "id": "ci-context-4-1-2",
+      "type": "Observation",
+      "title": "Providence · Network availability · Q3",
+      "content": "Providence, Northeast · Q3 2026. Network availability is 99.94%; repeat disruptions require proactive remediation.",
+      "source": "network_events",
+      "confidence": 97,
+      "confirmed": true,
+      "savedAt": "2026-08-08T00:00:00.000Z",
+      "question": "What changed in Providence network availability?"
+    },
+    {
+      "id": "ci-context-4-2-0",
+      "type": "Observation",
+      "title": "Providence · Revenue protection · Q1",
+      "content": "Providence, Northeast · Q1 2026. High-value Fiber accounts need service recovery before loyalty outreach.",
+      "source": "billing_summary",
+      "confidence": 98,
+      "confirmed": true,
+      "savedAt": "2026-02-11T00:00:00.000Z",
+      "question": "What changed in Providence revenue protection?"
+    },
+    {
+      "id": "ci-context-4-2-1",
+      "type": "Observation",
+      "title": "Providence · Revenue protection · Q2",
+      "content": "Providence, Northeast · Q2 2026. High-value Fiber accounts need service recovery before loyalty outreach.",
+      "source": "billing_summary",
+      "confidence": 98,
+      "confirmed": true,
+      "savedAt": "2026-05-11T00:00:00.000Z",
+      "question": "What changed in Providence revenue protection?"
+    },
+    {
+      "id": "ci-context-4-2-2",
+      "type": "Observation",
+      "title": "Providence · Revenue protection · Q3",
+      "content": "Providence, Northeast · Q3 2026. High-value Fiber accounts need service recovery before loyalty outreach.",
+      "source": "billing_summary",
+      "confidence": 98,
+      "confirmed": true,
+      "savedAt": "2026-08-11T00:00:00.000Z",
+      "question": "What changed in Providence revenue protection?"
+    },
+    {
+      "id": "ci-context-4-3-0",
+      "type": "Observation",
+      "title": "Providence · Support experience · Q1",
+      "content": "Providence, Northeast · Q1 2026. Billing contacts and repeat Network incidents are linked to lower satisfaction.",
+      "source": "support_tickets",
+      "confidence": 92,
+      "confirmed": true,
+      "savedAt": "2026-02-14T00:00:00.000Z",
+      "question": "What changed in Providence support experience?"
+    },
+    {
+      "id": "ci-context-4-3-1",
+      "type": "Observation",
+      "title": "Providence · Support experience · Q2",
+      "content": "Providence, Northeast · Q2 2026. Billing contacts and repeat Network incidents are linked to lower satisfaction.",
+      "source": "support_tickets",
+      "confidence": 92,
+      "confirmed": true,
+      "savedAt": "2026-05-14T00:00:00.000Z",
+      "question": "What changed in Providence support experience?"
+    },
+    {
+      "id": "ci-context-4-3-2",
+      "type": "Observation",
+      "title": "Providence · Support experience · Q3",
+      "content": "Providence, Northeast · Q3 2026. Billing contacts and repeat Network incidents are linked to lower satisfaction.",
+      "source": "support_tickets",
+      "confidence": 92,
+      "confirmed": true,
+      "savedAt": "2026-08-14T00:00:00.000Z",
+      "question": "What changed in Providence support experience?"
+    },
+    {
+      "id": "ci-context-4-4-0",
+      "type": "Observation",
+      "title": "Providence · Service recovery · Q1",
+      "content": "Providence, Northeast · Q1 2026. Proactive Network notifications reduce follow-up support contacts.",
+      "source": "Service recovery guide.pdf",
+      "confidence": 93,
+      "confirmed": true,
+      "savedAt": "2026-02-17T00:00:00.000Z",
+      "question": "What changed in Providence service recovery?"
+    },
+    {
+      "id": "ci-context-4-4-1",
+      "type": "Observation",
+      "title": "Providence · Service recovery · Q2",
+      "content": "Providence, Northeast · Q2 2026. Proactive Network notifications reduce follow-up support contacts.",
+      "source": "Service recovery guide.pdf",
+      "confidence": 93,
+      "confirmed": true,
+      "savedAt": "2026-05-17T00:00:00.000Z",
+      "question": "What changed in Providence service recovery?"
+    },
+    {
+      "id": "ci-context-4-4-2",
+      "type": "Observation",
+      "title": "Providence · Service recovery · Q3",
+      "content": "Providence, Northeast · Q3 2026. Proactive Network notifications reduce follow-up support contacts.",
+      "source": "Service recovery guide.pdf",
+      "confidence": 93,
+      "confirmed": true,
+      "savedAt": "2026-08-17T00:00:00.000Z",
+      "question": "What changed in Providence service recovery?"
+    },
+    {
+      "id": "ci-context-4-5-0",
+      "type": "Learned pattern",
+      "title": "Providence · Bundle adoption · Q1",
+      "content": "Providence, Northeast · Q1 2026. Fiber and wireless bundles have lower Churn than single-product accounts.",
+      "source": "Growth strategy.pdf",
+      "confidence": 94,
+      "confirmed": true,
+      "sourceFactIds": [
+        "ci-context-4-0-0",
+        "ci-context-4-1-0",
+        "ci-context-4-2-0",
+        "ci-context-4-3-0",
+        "ci-context-4-4-0"
+      ],
+      "savedAt": "2026-02-20T00:00:00.000Z",
+      "question": "What changed in Providence bundle adoption?"
+    },
+    {
+      "id": "ci-context-4-5-1",
+      "type": "Learned pattern",
+      "title": "Providence · Bundle adoption · Q2",
+      "content": "Providence, Northeast · Q2 2026. Fiber and wireless bundles have lower Churn than single-product accounts.",
+      "source": "Growth strategy.pdf",
+      "confidence": 94,
+      "confirmed": true,
+      "sourceFactIds": [
+        "ci-context-4-0-1",
+        "ci-context-4-1-1",
+        "ci-context-4-2-1",
+        "ci-context-4-3-1",
+        "ci-context-4-4-1"
+      ],
+      "savedAt": "2026-05-20T00:00:00.000Z",
+      "question": "What changed in Providence bundle adoption?"
+    },
+    {
+      "id": "ci-context-4-5-2",
+      "type": "Learned pattern",
+      "title": "Providence · Bundle adoption · Q3",
+      "content": "Providence, Northeast · Q3 2026. Fiber and wireless bundles have lower Churn than single-product accounts.",
+      "source": "Growth strategy.pdf",
+      "confidence": 94,
+      "confirmed": true,
+      "sourceFactIds": [
+        "ci-context-4-0-2",
+        "ci-context-4-1-2",
+        "ci-context-4-2-2",
+        "ci-context-4-3-2",
+        "ci-context-4-4-2"
+      ],
+      "savedAt": "2026-08-20T00:00:00.000Z",
+      "question": "What changed in Providence bundle adoption?"
+    },
+    {
+      "id": "ci-context-5-0-0",
+      "type": "Observation",
+      "title": "Hartford · Fiber churn · Q1",
+      "content": "Hartford, Northeast · Q1 2026. Fiber churn risk is concentrated among accounts with repeat service incidents.",
+      "source": "customer_360",
+      "confidence": 97,
+      "confirmed": true,
+      "savedAt": "2026-03-05T00:00:00.000Z",
+      "question": "What changed in Hartford fiber churn?"
+    },
+    {
+      "id": "ci-context-5-0-1",
+      "type": "Observation",
+      "title": "Hartford · Fiber churn · Q2",
+      "content": "Hartford, Northeast · Q2 2026. Fiber churn risk is concentrated among accounts with repeat service incidents.",
+      "source": "customer_360",
+      "confidence": 97,
+      "confirmed": true,
+      "savedAt": "2026-06-05T00:00:00.000Z",
+      "question": "What changed in Hartford fiber churn?"
+    },
+    {
+      "id": "ci-context-5-0-2",
+      "type": "Observation",
+      "title": "Hartford · Fiber churn · Q3",
+      "content": "Hartford, Northeast · Q3 2026. Fiber churn risk is concentrated among accounts with repeat service incidents.",
+      "source": "customer_360",
+      "confidence": 97,
+      "confirmed": true,
+      "savedAt": "2026-09-05T00:00:00.000Z",
+      "question": "What changed in Hartford fiber churn?"
+    },
+    {
+      "id": "ci-context-5-1-0",
+      "type": "Observation",
+      "title": "Hartford · Network availability · Q1",
+      "content": "Hartford, Northeast · Q1 2026. Network availability is 99.94%; repeat disruptions require proactive remediation.",
+      "source": "network_events",
+      "confidence": 98,
+      "confirmed": true,
+      "savedAt": "2026-03-08T00:00:00.000Z",
+      "question": "What changed in Hartford network availability?"
+    },
+    {
+      "id": "ci-context-5-1-1",
+      "type": "Observation",
+      "title": "Hartford · Network availability · Q2",
+      "content": "Hartford, Northeast · Q2 2026. Network availability is 99.94%; repeat disruptions require proactive remediation.",
+      "source": "network_events",
+      "confidence": 98,
+      "confirmed": true,
+      "savedAt": "2026-06-08T00:00:00.000Z",
+      "question": "What changed in Hartford network availability?"
+    },
+    {
+      "id": "ci-context-5-1-2",
+      "type": "Observation",
+      "title": "Hartford · Network availability · Q3",
+      "content": "Hartford, Northeast · Q3 2026. Network availability is 99.94%; repeat disruptions require proactive remediation.",
+      "source": "network_events",
+      "confidence": 98,
+      "confirmed": true,
+      "savedAt": "2026-09-08T00:00:00.000Z",
+      "question": "What changed in Hartford network availability?"
+    },
+    {
+      "id": "ci-context-5-2-0",
+      "type": "Observation",
+      "title": "Hartford · Revenue protection · Q1",
+      "content": "Hartford, Northeast · Q1 2026. High-value Fiber accounts need service recovery before loyalty outreach.",
+      "source": "billing_summary",
+      "confidence": 92,
+      "confirmed": true,
+      "savedAt": "2026-03-11T00:00:00.000Z",
+      "question": "What changed in Hartford revenue protection?"
+    },
+    {
+      "id": "ci-context-5-2-1",
+      "type": "Observation",
+      "title": "Hartford · Revenue protection · Q2",
+      "content": "Hartford, Northeast · Q2 2026. High-value Fiber accounts need service recovery before loyalty outreach.",
+      "source": "billing_summary",
+      "confidence": 92,
+      "confirmed": true,
+      "savedAt": "2026-06-11T00:00:00.000Z",
+      "question": "What changed in Hartford revenue protection?"
+    },
+    {
+      "id": "ci-context-5-2-2",
+      "type": "Observation",
+      "title": "Hartford · Revenue protection · Q3",
+      "content": "Hartford, Northeast · Q3 2026. High-value Fiber accounts need service recovery before loyalty outreach.",
+      "source": "billing_summary",
+      "confidence": 92,
+      "confirmed": true,
+      "savedAt": "2026-09-11T00:00:00.000Z",
+      "question": "What changed in Hartford revenue protection?"
+    },
+    {
+      "id": "ci-context-5-3-0",
+      "type": "Observation",
+      "title": "Hartford · Support experience · Q1",
+      "content": "Hartford, Northeast · Q1 2026. Billing contacts and repeat Network incidents are linked to lower satisfaction.",
+      "source": "support_tickets",
+      "confidence": 93,
+      "confirmed": true,
+      "savedAt": "2026-03-14T00:00:00.000Z",
+      "question": "What changed in Hartford support experience?"
+    },
+    {
+      "id": "ci-context-5-3-1",
+      "type": "Observation",
+      "title": "Hartford · Support experience · Q2",
+      "content": "Hartford, Northeast · Q2 2026. Billing contacts and repeat Network incidents are linked to lower satisfaction.",
+      "source": "support_tickets",
+      "confidence": 93,
+      "confirmed": true,
+      "savedAt": "2026-06-14T00:00:00.000Z",
+      "question": "What changed in Hartford support experience?"
+    },
+    {
+      "id": "ci-context-5-3-2",
+      "type": "Observation",
+      "title": "Hartford · Support experience · Q3",
+      "content": "Hartford, Northeast · Q3 2026. Billing contacts and repeat Network incidents are linked to lower satisfaction.",
+      "source": "support_tickets",
+      "confidence": 93,
+      "confirmed": true,
+      "savedAt": "2026-09-14T00:00:00.000Z",
+      "question": "What changed in Hartford support experience?"
+    },
+    {
+      "id": "ci-context-5-4-0",
+      "type": "Observation",
+      "title": "Hartford · Service recovery · Q1",
+      "content": "Hartford, Northeast · Q1 2026. Proactive Network notifications reduce follow-up support contacts.",
+      "source": "Service recovery guide.pdf",
+      "confidence": 94,
+      "confirmed": true,
+      "savedAt": "2026-03-17T00:00:00.000Z",
+      "question": "What changed in Hartford service recovery?"
+    },
+    {
+      "id": "ci-context-5-4-1",
+      "type": "Observation",
+      "title": "Hartford · Service recovery · Q2",
+      "content": "Hartford, Northeast · Q2 2026. Proactive Network notifications reduce follow-up support contacts.",
+      "source": "Service recovery guide.pdf",
+      "confidence": 94,
+      "confirmed": true,
+      "savedAt": "2026-06-17T00:00:00.000Z",
+      "question": "What changed in Hartford service recovery?"
+    },
+    {
+      "id": "ci-context-5-4-2",
+      "type": "Observation",
+      "title": "Hartford · Service recovery · Q3",
+      "content": "Hartford, Northeast · Q3 2026. Proactive Network notifications reduce follow-up support contacts.",
+      "source": "Service recovery guide.pdf",
+      "confidence": 94,
+      "confirmed": true,
+      "savedAt": "2026-09-17T00:00:00.000Z",
+      "question": "What changed in Hartford service recovery?"
+    },
+    {
+      "id": "ci-context-5-5-0",
+      "type": "Learned pattern",
+      "title": "Hartford · Bundle adoption · Q1",
+      "content": "Hartford, Northeast · Q1 2026. Fiber and wireless bundles have lower Churn than single-product accounts.",
+      "source": "Growth strategy.pdf",
+      "confidence": 95,
+      "confirmed": true,
+      "sourceFactIds": [
+        "ci-context-5-0-0",
+        "ci-context-5-1-0",
+        "ci-context-5-2-0",
+        "ci-context-5-3-0",
+        "ci-context-5-4-0"
+      ],
+      "savedAt": "2026-03-20T00:00:00.000Z",
+      "question": "What changed in Hartford bundle adoption?"
+    },
+    {
+      "id": "ci-context-5-5-1",
+      "type": "Learned pattern",
+      "title": "Hartford · Bundle adoption · Q2",
+      "content": "Hartford, Northeast · Q2 2026. Fiber and wireless bundles have lower Churn than single-product accounts.",
+      "source": "Growth strategy.pdf",
+      "confidence": 95,
+      "confirmed": true,
+      "sourceFactIds": [
+        "ci-context-5-0-1",
+        "ci-context-5-1-1",
+        "ci-context-5-2-1",
+        "ci-context-5-3-1",
+        "ci-context-5-4-1"
+      ],
+      "savedAt": "2026-06-20T00:00:00.000Z",
+      "question": "What changed in Hartford bundle adoption?"
+    },
+    {
+      "id": "ci-context-5-5-2",
+      "type": "Learned pattern",
+      "title": "Hartford · Bundle adoption · Q3",
+      "content": "Hartford, Northeast · Q3 2026. Fiber and wireless bundles have lower Churn than single-product accounts.",
+      "source": "Growth strategy.pdf",
+      "confidence": 95,
+      "confirmed": true,
+      "sourceFactIds": [
+        "ci-context-5-0-2",
+        "ci-context-5-1-2",
+        "ci-context-5-2-2",
+        "ci-context-5-3-2",
+        "ci-context-5-4-2"
+      ],
+      "savedAt": "2026-09-20T00:00:00.000Z",
+      "question": "What changed in Hartford bundle adoption?"
+    }
+  ],
+  "bank": {
+    "config": {
+      "name": "Customer intelligence",
+      "retain_mission": "Retain customer needs, service incidents, revenue signals, and resolved outcomes.",
+      "reflect_mission": "Support customer decisions with verified evidence and source references.",
+      "retain_extraction_mode": "concise",
+      "enable_observations": true,
+      "observations_mission": "Connect repeated service incidents to customer experience and retention.",
+      "disposition_skepticism": 4,
+      "disposition_literalism": 3,
+      "disposition_empathy": 4,
+      "entities_allow_free_form": true
+    },
+    "models": [
+      {
+        "id": "retention-priorities",
+        "name": "Retention priorities",
+        "source_query": "What is driving Northeast churn and which accounts need attention?",
+        "tags": [
+          "customer-intelligence"
+        ],
+        "trigger": {
+          "refresh_after_consolidation": true
+        },
+        "content": "Boston, Northeast · Q1 2026. Fiber and wireless bundles have lower Churn than single-product accounts. [1]\n\nBoston, Northeast · Q2 2026. Fiber and wireless bundles have lower Churn than single-product accounts. [2]\n\nBoston, Northeast · Q3 2026. Fiber and wireless bundles have lower Churn than single-product accounts. [3]\n\nNew York, Northeast · Q1 2026. Fiber and wireless bundles have lower Churn than single-product accounts. [4]",
+        "source_ids": [
+          "ci-context-0-5-0",
+          "ci-context-0-5-1",
+          "ci-context-0-5-2",
+          "ci-context-1-5-0"
+        ],
+        "updated_at": "2026-09-20T12:00:00Z"
+      }
+    ],
+    "directives": [
+      {
+        "name": "Ground every recommendation",
+        "content": "Cite retained evidence. Separate correlation from causation and identify missing information.",
+        "priority": 10,
+        "is_active": true
+      }
+    ],
+    "pages": [
+      {
+        "id": "service-intelligence",
+        "name": "Service and retention intelligence",
+        "folder": "Customer intelligence",
+        "source_query": "What do we know about Fiber churn in the Northeast?",
+        "content": "Boston, Northeast · Q1 2026. Fiber and wireless bundles have lower Churn than single-product accounts. [1]\n\nBoston, Northeast · Q2 2026. Fiber and wireless bundles have lower Churn than single-product accounts. [2]\n\nBoston, Northeast · Q3 2026. Fiber and wireless bundles have lower Churn than single-product accounts. [3]\n\nNew York, Northeast · Q1 2026. Fiber and wireless bundles have lower Churn than single-product accounts. [4]",
+        "source_ids": [
+          "ci-context-0-5-0",
+          "ci-context-0-5-1",
+          "ci-context-0-5-2",
+          "ci-context-1-5-0"
+        ],
+        "updated_at": "2026-09-20T12:00:00Z"
+      }
+    ],
+    "hooks": [],
+    "operations": []
+  },
+  "schemaNodes": [
+    {
+      "id": "customers",
+      "label": "customer_360",
+      "sub": "12,480 customer records",
+      "x": 365,
+      "y": 255,
+      "type": "table",
+      "source": "Databricks",
+      "fields": [
+        "customer_id · primary key",
+        "region · varchar",
+        "plan_type · varchar",
+        "churn_risk · float"
+      ],
+      "color": "#009fdb"
+    },
+    {
+      "id": "billing",
+      "label": "billing_summary",
+      "sub": "36,240 billing records",
+      "x": 615,
+      "y": 145,
+      "type": "table",
+      "source": "Snowflake",
+      "fields": [
+        "billing_id · primary key",
+        "customer_id · foreign key",
+        "monthly_revenue · decimal",
+        "billing_period · date"
+      ],
+      "color": "#009fdb"
+    },
+    {
+      "id": "network",
+      "label": "network_events",
+      "sub": "8,642 service events",
+      "x": 625,
+      "y": 360,
+      "type": "table",
+      "source": "Databricks",
+      "fields": [
+        "event_id · primary key",
+        "customer_id · foreign key",
+        "incident_type · varchar",
+        "resolved_at · timestamp"
+      ],
+      "color": "#009fdb"
+    },
+    {
+      "id": "support",
+      "label": "support_tickets",
+      "sub": "2,806 support cases",
+      "x": 125,
+      "y": 380,
+      "type": "table",
+      "source": "Snowflake",
+      "fields": [
+        "ticket_id · primary key",
+        "customer_id · foreign key",
+        "issue_category · varchar",
+        "satisfaction_score · integer"
+      ],
+      "color": "#009fdb"
+    },
+    {
+      "id": "index",
+      "label": "enterprise-knowledge",
+      "sub": "Azure AI Search · vector index",
+      "x": 370,
+      "y": 70,
+      "type": "vector",
+      "source": "Azure AI Search",
+      "fields": [
+        "Vector dimensions · 1,536",
+        "Similarity · cosine",
+        "Chunk size · 512 tokens",
+        "Index mode · hybrid search"
+      ],
+      "color": "#9c73d8"
+    },
+    {
+      "id": "docs",
+      "label": "Retention playbooks",
+      "sub": "148 indexed documents",
+      "x": 110,
+      "y": 130,
+      "type": "document",
+      "source": "SharePoint",
+      "fields": [
+        "File types · PDF, DOCX, TXT",
+        "Semantic chunks · 1,842",
+        "Embedding model · text-embedding-3-small",
+        "Collection · Customer experience"
+      ],
+      "color": "#1d9b8a"
+    }
+  ],
+  "evaluations": {
+    "passed": 24,
+    "total": 25,
+    "metrics": [
+      {
+        "name": "Groundedness",
+        "score": 96
+      },
+      {
+        "name": "Answer relevance",
+        "score": 98
+      },
+      {
+        "name": "Retrieval precision",
+        "score": 94
+      }
+    ],
+    "reviewQuestion": "Explain historic churn for the Southwest in 2021.",
+    "reviewReason": "The dataset does not include that period."
+  },
+  "testAnswer": "1,240 Northeast customers show elevated churn risk, based on service incidents and recent support interactions.",
+  "readinessScore": 94,
+  "knowledgeSummary": {
+    "sourceCollections": 6,
+    "vectorEmbeddings": 1842
+  },
+  "profile": {
+    "name": "Jordan Davis",
+    "initials": "JD",
+    "role": "Workspace admin"
+  }
+}
