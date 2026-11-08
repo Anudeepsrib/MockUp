@@ -8,7 +8,8 @@ from pathlib import Path
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
-from .models import BankUpdate, ContextUpdate, Correction, MemoryUpdate, Question
+from .models import BankUpdate, ContextUpdate, ContextReviewRequest, Correction, MemoryUpdate, Question, RunRequest
+from .context_quality import review_context
 from .service import now_iso, recall, recallable, run_memories, topic_for
 from .store import Store
 
@@ -123,19 +124,35 @@ def create_app(db_path: Path | None = None, run_step_seconds: float = .85) -> Fa
             raise HTTPException(409, "Connect a source first.")
         return fixtures["evaluations"]
 
+    @app.post("/api/context/review")
+    def context_review(body: ContextReviewRequest):
+        return review_context(body.model_dump(), store().read(), fixtures["corpus"])
+
     # Normalize an orchestrator job into this shape in production; tick 0..12 is a UI progress scale.
     def run_response(run: dict) -> dict:
         tick = min(12, max(0, int((time.time() - run["started_at"]) / run_step_seconds)))
-        return {"id": run["id"], "question": run["question"], "topic": run["topic"], "answer": fixtures["answers"][run["topic"]], "recalled": run["recalled"], "tick": tick, "complete": tick >= 12}
+        result = {"id": run["id"], "question": run["question"], "topic": run["topic"], "answer": fixtures["answers"][run["topic"]], "recalled": run["recalled"], "tick": tick, "complete": tick >= 12}
+        if run.get("context_review"):
+            result["contextReview"] = run["context_review"]
+        return result
 
     @app.post("/api/runs")
-    def start_run(body: Question):
+    def start_run(body: RunRequest):
         run = {}
         def change(state: dict):
             if not state["connections"]:
                 raise HTTPException(409, "Connect a source first.")
+            if body.context.brief.objective != body.question:
+                raise HTTPException(422, "The task brief must describe the question being run.")
+            report = review_context(body.context.model_dump(), state, fixtures["corpus"])
+            if report["decision"] != "proceed":
+                reasons = [check["summary"] for check in report["checks"] if check["result"] == "fail"]
+                raise HTTPException(409, "CAFE(S) review: " + " ".join(reasons))
+            included = {item["id"] for item in report["items"] if item["kind"] == "memory" and item["status"] == "included"}
+            recalled = [memory for memory in recall(state["memories"], body.question) if memory["id"] in included]
             identifier = max([int(time.time() * 1000)] + [int(key) + 1 for key in state["runs"]])
-            run.update(id=identifier, question=body.question, topic=topic_for(body.question), recalled=recall(state["memories"], body.question), started_at=time.time(), saved=False)
+            run.update(id=identifier, question=body.question, topic=topic_for(body.question), recalled=recalled, started_at=time.time(), saved=False)
+            run.update(context_review=report, task_brief=body.context.brief.model_dump())
             state["runs"][str(identifier)] = run
         store().update(change)
         return run_response(run)

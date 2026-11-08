@@ -11,7 +11,7 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 127.0.0.1",
     "check": "tsc --noEmit",
-    "test": "node --experimental-strip-types --test tests/graph-interaction.test.mjs tests/graph-model.test.mjs tests/http-api.test.mjs tests/api-composition.test.mjs tests/memory-overview.test.mjs"
+    "test": "node --experimental-strip-types --test tests/graph-interaction.test.mjs tests/graph-model.test.mjs tests/http-api.test.mjs tests/api-composition.test.mjs tests/memory-overview.test.mjs tests/investigation.test.mjs"
   },
   "dependencies": {
     "class-variance-authority": "0.7.1",

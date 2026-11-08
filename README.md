@@ -4,10 +4,13 @@ An AT&T themed enterprise intelligence studio with a React UI and a separate Fas
 
 ## Features
 
-- **Context Layer:** configure enterprise sources and MCP endpoints, register file names, try questions, and view evaluations.
-- **Knowledge Layer:** explore dataset relationships on an interactive white canvas.
-- **Super Agent:** ask questions, follow agent progress, inspect sources, and review newly saved memories.
-- **Compounding Intelligence:** see what the agent learned, what is ready to reuse, and what needs review. Explore the memory graph, edit facts, approve records, and open related questions.
+- **Context Layer:** follow the Northeast churn story, define the task, configure sources, and see a backend CAFE(S) assessment.
+- **Knowledge Layer:** connect the evidence through searchable records, source inspection, pins, and a relationship graph.
+- **Super Agent:** start a scoped, server-reviewed demo investigation, inspect findings, and draft the next action.
+- **Memory:** review, correct, approve, or retire what the next question can reuse.
+- **CAFE(S):** a separate live demo page for prepared context, missing scope, stale evidence, noisy context, unsafe instructions, and draft memory. Inspect the backend decision and included/excluded candidates.
+
+CAFE(S) checks execute through `POST /api/context/review` on synthetic local records. New agent runs require a structured task context and recompute the checks before starting; blocked cases create no run. The demo checks task fields, source-snapshot consistency, memory eligibility, approximate text size, duplicates, and a narrow instruction-quarantine rule. It does not connect the private LangSmith/Deep Agents/Hindsight backend or implement enterprise authentication. Task/action drafts remain browser-local. See the [backend handoff](docs/BACKEND_INTEGRATION.md#context-review-ui-and-private-backend-handoff) and [implementation plan](docs/CONTEXT_QUALITY_IMPLEMENTATION_PLAN.md).
 
 Graphs support canvas panning, draggable nodes, zoom, and clickable record details. Memory review preserves source evidence and keeps unapproved or invalidated knowledge out of recall.
 

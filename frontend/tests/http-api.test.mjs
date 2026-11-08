@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import {createHttpStudioApi} from '../src/services/http-studio-api.ts';
 
 const state={connections:[],files:[],mcpServers:[],memories:[],bank:{config:{},models:[],directives:[],pages:[],hooks:[],operations:[]},revision:1};
+const reviewPayload={brief:{objective:'Why churn?',region:'Northeast',period:'Demo',metric:'Churn',deliverable:'Explain'},pinnedIds:[],scenario:'ready'};
 const json=(value,status=200)=>new Response(JSON.stringify(value),{status,headers:{'Content-Type':'application/json'}});
 const calls=[];
 const client=createHttpStudioApi('https://services.example/api/',async(url,init)=>{calls.push({url,init});return json(url.endsWith('/query')?{answer:'Service response'}:state);});
@@ -21,12 +22,13 @@ const delayed=new Promise(resolve=>{release=resolve;});
 const serial=createHttpStudioApi('/api',async(url)=>{ordered.push(url);if(url.endsWith('/context'))await delayed;return json(state);});
 const context=serial.saveContext({connections:[],files:[],mcpServers:[]});
 const memories=serial.saveMemories([]);
-const run=serial.startRun('Question');
+const run=serial.startRun('Question',{...reviewPayload,brief:{...reviewPayload.brief,objective:'Question'}});
+const reviewed=serial.reviewContext(reviewPayload);
 await Promise.resolve();
 assert.deepEqual(ordered,['/api/context']);
 release();
-await Promise.all([context,memories,run]);
-assert.deepEqual(ordered,['/api/context','/api/memories','/api/runs']);
+await Promise.all([context,memories,run,reviewed]);
+assert.deepEqual(ordered,['/api/context','/api/memories','/api/runs','/api/context/review']);
 
 let attempt=0;
 const retry=createHttpStudioApi('/api',async()=>++attempt===1?json({detail:'Review source evidence first.'},409):json(state));
@@ -37,3 +39,11 @@ await assert.rejects(invalid.bootstrap(),/invalid JSON/);
 const validation=createHttpStudioApi('/api',async()=>json({detail:[{msg:'Required field missing.'}]},422));
 await assert.rejects(validation.query('Question'),/Required field missing/);
 console.log('HTTP adapter self-check passed: injectable transport, route mapping, ordered writes, retries, and errors.');
+
+const contextCalls=[];
+const contextClient=createHttpStudioApi('/api',async(url,init)=>{contextCalls.push({url,body:JSON.parse(init.body)});return json({decision:'proceed',checks:[],id:9});});
+await contextClient.reviewContext(reviewPayload);
+await contextClient.startRun('Why churn?',reviewPayload);
+assert.equal(contextCalls[0].url,'/api/context/review');
+assert.deepEqual(contextCalls[0].body,reviewPayload);
+assert.deepEqual(contextCalls[1].body,{question:'Why churn?',context:reviewPayload});

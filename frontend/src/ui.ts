@@ -5,3 +5,6 @@ export {default as McpForm} from './components/mcp-form';
 export {Button} from './components/ui/button';
 export type {MemoryGraphData,Relation} from './lib/graph';
 export type {Memory,Source} from './lib/demo';
+
+export {default as ContextReviewPanel} from './components/context-review';
+export type {ContextCheck,ContextReview,TaskBrief} from './lib/investigation';

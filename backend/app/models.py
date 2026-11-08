@@ -125,6 +125,31 @@ class Question(StrictModel):
     question: str = Field(min_length=1, max_length=4000)
 
 
+class TaskBrief(StrictModel):
+    objective: str = Field(max_length=2000)
+    region: str = Field(max_length=150)
+    period: str = Field(max_length=150)
+    metric: str = Field(max_length=300)
+    deliverable: str = Field(max_length=1000)
+
+
+class ContextReviewRequest(StrictModel):
+    brief: TaskBrief
+    pinnedIds: list[str] = Field(default_factory=list, max_length=200)
+    scenario: Literal["ready", "missing_scope", "stale_evidence", "noisy_context", "unsafe_context", "draft_memory"] = "ready"
+
+    @field_validator("pinnedIds")
+    @classmethod
+    def valid_references(cls, value: list[str]) -> list[str]:
+        if any(not key or len(key) > 250 for key in value) or len(set(value)) != len(value):
+            raise ValueError("Use unique evidence IDs under 250 characters.")
+        return value
+
+
+class RunRequest(Question):
+    context: ContextReviewRequest
+
+
 class Correction(StrictModel):
     text: str | None = Field(default=None, min_length=1, max_length=4000)
     state: Literal["valid", "invalidated"] | None = None

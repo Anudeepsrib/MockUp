@@ -73,7 +73,9 @@ def test_bank_configuration_is_validated_and_saved(client):
 
 def test_agent_run_polling_saves_memories_once(client):
     before = client.get("/api/workspace").json()["memories"]
-    started = client.post("/api/runs", json={"question": "How is network performance affecting customers?"}).json()
+    question = "How is network performance affecting customers?"
+    context = {"brief": {"objective": question, "region": "Northeast", "period": "Demo dataset coverage", "metric": "Network availability", "deliverable": "Explain the evidence"}, "pinnedIds": [], "scenario": "ready"}
+    started = client.post("/api/runs", json={"question": question, "context": context}).json()
     # Advance this fixture's clock without sleeping through a presentation run.
     client.app.state.store.update(lambda state: state["runs"][str(started["id"])].update(started_at=0))
     completed = client.get(f"/api/runs/{started['id']}").json()

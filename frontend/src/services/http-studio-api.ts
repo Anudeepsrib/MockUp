@@ -1,3 +1,4 @@
+import type {ContextReview} from '../lib/investigation';
 import type {StudioApi,StudioState,Bootstrap,AgentRun} from '../lib/contracts';
 
 export type StudioFetch=(input:RequestInfo|URL,init?:RequestInit)=>Promise<Response>;
@@ -13,7 +14,7 @@ export function createHttpStudioApi(baseUrl:string,fetcher:StudioFetch=globalThi
       // An authenticated fetch implementation can be supplied without adding credentials to components.
       const response=await fetcher(`${base}${path}`,{method,signal:controller.signal,headers:body===undefined?undefined:{'Content-Type':'application/json'},body:body===undefined?undefined:JSON.stringify(body)});
       const value=await response.json().catch(()=>null);
-      if(!response.ok){const detail=value?.detail;throw new Error(typeof detail==='string'?detail:Array.isArray(detail)?detail.map((item:{msg:string})=>item.msg).join(' '):'The workspace could not complete this request.');}
+      if(!response.ok){if(path==='/context/review'&&response.status===404)throw new Error('The CAFE(S) endpoint is unavailable. Restart the updated local backend.');const detail=value?.detail;throw new Error(typeof detail==='string'?detail:Array.isArray(detail)?detail.map((item:{msg:string})=>item.msg).join(' '):'The workspace could not complete this request.');}
       if(value===null)throw new Error('The workspace API returned an invalid JSON response.');
       return value as T;
     } catch(error) {
@@ -34,7 +35,8 @@ export function createHttpStudioApi(baseUrl:string,fetcher:StudioFetch=globalThi
     saveContext:context=>save('/context',context),
     saveMemories:memories=>save('/memories',{memories}),
     saveBank:bank=>save('/bank',bank),
-    startRun:async question=>{await writes;return request<AgentRun>('/runs','POST',{question});},
+    startRun:async (question,context)=>{await writes;return request<AgentRun>('/runs','POST',{question,context});},
+    reviewContext:async context=>{await writes;return request<ContextReview>('/context/review','POST',context);},
     pollRun:id=>request<AgentRun>(`/runs/${id}`),
     query:question=>request<{answer:string}>('/query','POST',{question}),
     evaluate:()=>request<Bootstrap['evaluations']>('/evaluations','POST'),

@@ -39,7 +39,7 @@ flowchart LR
 
 Follow [Run locally in the README](../README.md#run-locally) to install dependencies and start both services. Open the [studio](http://127.0.0.1:5173/); [FastAPI documentation](http://127.0.0.1:8000/docs) is available for technical audiences.
 
-Use the left navigation to move between the four stages. At narrow browser widths, use **Switch page** in the top bar. In **Memory**, **More controls** opens the additional memory tools.
+Use the left navigation to move between the four stages. The app initially opens **Context Layer**. At narrow browser widths, use **Switch page** in the top bar. In **Memory**, **More controls** opens the additional memory tools.
 
 For a repeatable rehearsal, start the backend with a separate database instead of clearing an existing workspace. Run this from the repository root, in the backend terminal:
 
@@ -65,7 +65,7 @@ A fresh workspace starts with four selected sources and 108 approved memory reco
 1. Point out the four initially selected sources: **Local files**, **Databricks**, **Snowflake**, and **SharePoint**.
 2. Open **Add source** to show the catalog and its source filters, then close the dialog. You can inspect a source without changing the workspace.
 3. Point to **MCP connectors** and **Add MCP server** as the place to configure additional tool endpoints.
-4. Under **Try a question**, keep **How many customers are at risk of churn?** and select **Ask your data**.
+4. Under **Try a question**, keep **How many customers are at risk of churn?** and select **Ask demo data**.
 5. Show the answer: **1,240 Northeast customers show elevated churn risk**, based on service incidents and recent support interactions.
 6. Select **Evals**, then **Run evaluations**, and open **View report**.
 
@@ -75,7 +75,7 @@ A fresh workspace starts with four selected sources and 108 approved memory reco
 
 > “We have a concrete population to investigate, and we can discuss the limits of the available evidence before relying on a recommendation.”
 
-**How it works today:** The source selections and custom MCP endpoint metadata are saved through FastAPI. **Ask your data** and **Run evaluations** return fixture responses. The 94% readiness indicator and catalog sizes are also fixture metadata. No live evaluation or indexing job runs here. The report's coverage warning is a prepared example; it does not mean arbitrary unsupported agent questions are detected automatically.
+**How it works today:** The source selections and custom MCP endpoint metadata are saved through FastAPI. **Ask demo data** and **Run evaluations** return fixture responses. The CAFE(S) panel receives a live local-backend report. Its scope is the synthetic demo corpus and declared demo rules; it does not verify enterprise source freshness or authentication. Catalog sizes are fixture metadata. No live evaluation or indexing job runs here. The report's coverage warning is a prepared example; it does not mean arbitrary unsupported agent questions are detected automatically.
 
 Optional: show the upload control, explaining that it registers file names only. It does not send file contents for parsing or retrieval. Similarly, adding an MCP endpoint does not discover or execute its tools.
 
@@ -89,10 +89,10 @@ Optional: show the upload control, explaining that it registers file names only.
 
 **Do:**
 
-1. Point to the graph's 108 seeded records and the summary of six source collections and 1,842 vector embeddings.
-2. Pan the canvas, zoom, and search for **Boston**. Select a record to inspect it.
-3. Use **Explore a source** to open **customer_360**, **network_events**, or **support_tickets**.
-4. Show the schema fields and source description. Close the dialog, or use **Ask about this source** to prefill a question in Super Agent.
+1. Show **108 available records**, **six source collections**, and the pinned review count.
+2. Search for **Boston**, inspect a record, and select **Pin for review**. Use the **Pinned for review** filter to inspect that review set.
+3. Select **Inspect source schema** to see field definitions. Pins do not establish what the model actually received.
+4. Select **Graph** to pan, zoom, and inspect relationships, or **Ask about this record** to prepare a related question in Super Agent.
 
 The mock source descriptions give the business story scale:
 
@@ -111,19 +111,15 @@ The mock source descriptions give the business story scale:
 
 **Open:** Super Agent. Allow about two minutes.
 
-**Ask the suggested question:**
-
-> What’s driving customer churn in the Northeast?
-
 **Do:**
 
-1. Expand **Agent activity & memory** while the run progresses.
-2. Follow the planning, table-query, knowledge-retrieval, evidence-checking, and memory stages.
-3. Wait roughly 10–11 seconds for completion.
-4. Read the headline: **A service experience gap is driving Northeast churn.**
-5. Point out **4.8% Northeast churn**, **1.7 percentage points above the national rate**, and **62% had a service incident**.
-6. Open a numbered citation or a source chip such as **network_events**.
-7. Point to the recommended action: prioritize proactive service recovery in Boston and New York, then pair it with a targeted loyalty offer.
+1. In **Brief & context**, inspect the default churn question, region, period, metric, and expected outcome. Use **Edit brief** to change them.
+2. Expand the CAFE(S) checks. The prepared case should show five local-demo checks passing. Open **CAFE(S)** to inspect the checked brief, packet, methods, and limitations.
+3. Select **Run Super Agent** and wait roughly 10-11 seconds. The activity is explicitly simulated.
+4. Inspect **Findings**, including **4.8% Northeast churn**, the **1.7 percentage point** gap, and the synthetic supporting references.
+5. Open a numbered citation or source chip. Its dialog describes the fixture evidence summary rather than claiming to open an original source.
+6. Select **Create action draft** (or **Open action draft** if one exists). Enter a demo owner, success measure, comparison, and optional review date; select **Save action draft**. This saves locally and dispatches no work.
+7. Return to **Findings** and select **Review new knowledge** to open a new draft memory from this run.
 
 **Say:**
 
@@ -137,7 +133,7 @@ At completion, FastAPI saves three draft memory records once per run. They appea
 
 ## Scene 4 — Review what the system wants to remember
 
-**Open:** **Review memory** under the answer. Allow about two minutes.
+**Open:** **Review new knowledge** under the answer. Allow about two minutes.
 
 **Say:**
 
@@ -145,8 +141,8 @@ At completion, FastAPI saves three draft memory records once per run. They appea
 
 **Do:**
 
-1. In the Memory overview, show **Ready to reuse**, **Needs your review**, **Reusable patterns**, and **Knowledge sources**.
-2. Open the recent **Northeast churn baseline** fact through **Review memory** or **Saved knowledge**. If several rehearsal runs exist, choose the fact belonging to the question just asked.
+1. In **Approved knowledge**, select **Overview** to show **Ready to reuse**, **Needs your review**, **Reusable patterns**, and **Knowledge sources**.
+2. Open the recent **Northeast churn baseline** fact through **Review memory** or **Review knowledge**. If several rehearsal runs exist, choose the fact belonging to the question just asked.
 3. Inspect its source, question, and **Raw JSON**. Return to **Details**.
 4. Select **Edit fact**. For this fictional rehearsal, use:
 
@@ -173,15 +169,15 @@ To retire a fact, enter a reason and choose **Invalidate fact**. It remains insp
 
 ## Scene 5 — Demonstrate continuity in the next question
 
-**Open:** Memory → **Try memory**, then Super Agent. Allow about two minutes.
+**Open:** Memory → **Try memory**, then Investigations. Allow about two minutes.
 
 **Do:**
 
 1. In **Try memory**, choose **Recall** and enter **Who owns the Northeast recovery pilot?** Select **Run recall**.
 2. Find the corrected **Northeast churn baseline** in the results and show the added owner sentence.
 3. Optionally choose **Reflect**, run the same question, and inspect the cited retained text.
-4. Return to **Super Agent**, select **New conversation**, and ask **Who owns the Northeast recovery pilot?**
-5. After completion, show **Context recalled from your memory bank** containing the approved correction.
+4. Return to **Super Agent**, use **Continue the investigation**, and ask **Who owns the Northeast recovery pilot?**
+5. After completion, expand **approved memories recalled** in Findings and inspect the approved correction.
 
 **Say:**
 
@@ -189,7 +185,7 @@ To retire a fact, enter a reason and choose **Invalidate fact**. It remains insp
 
 **How it works today:** The local recall implementation ranks approved text by matching words. **Reflect** assembles retained excerpts, or uses a current mental model when its source question matches exactly. It does not call an LLM. The agent's main answer remains a fixed topic response; the approved owner sentence appears in the recalled-context panel. Do not present a changed canned answer or improved accuracy as the result of approval.
 
-Refresh the page to demonstrate persistence. The app returns to Context Layer; navigate back to Memory → Saved knowledge to inspect the approved record. The conversation display is temporary and is not rebuilt from stored backend run history after reload. Memories, source selections, and bank settings remain saved.
+Refresh the page to demonstrate persistence. The app opens Context Layer and restores the latest run by its saved ID. The brief, evidence pins, and saved action draft stay in this browser; memories, source selections, and bank settings are saved by the API. The full multi-run conversation history is not restored.
 
 ## Scene 6 — Connect service recovery to the commercial story
 
@@ -210,6 +206,20 @@ Then ask **Where are our biggest revenue opportunities?** Show:
 
 Each additional question creates another three draft records. The demo does not send outreach, create CRM tasks, or execute offers.
 
+## Optional scene — Show why context quality matters
+
+Open **CAFE(S)** from the separate context-quality navigation. It evaluates the same shared task, pins, source selections, and memory eligibility through the local API.
+
+1. Select **Prepared context**. Show the backend decision and the five checked assertions; expand **How this was checked** for method and references.
+2. Select **Missing scope**. The evaluated copy has no reporting period, and the backend asks for input.
+3. Select **Stale evidence**. A copied record has an outdated snapshot version, and execution is blocked.
+4. Select **Noisy context**. Open **Held back / removed** to inspect three duplicates and two off-topic notes. The trimmed demo packet can proceed.
+5. Select **Unsafe instruction**. The illustrative quarantine rule catches an instruction in retrieved content and blocks the case.
+6. Select **Draft memory**. Inspect the unapproved candidate that was held back while eligible context remains usable.
+7. Restore **Prepared context**, then continue to **Super Agent**. A new run repeats the checks server-side; skipping the review screen or omitting the structured context cannot bypass them.
+
+Each case modifies copies, not saved source data or memory approvals. The packet is a reviewed demonstration artifact, not a live model-input trace. Expand the boundaries note before discussing production use: there is no enterprise authentication, live LLM, LangSmith trace, or Hindsight service integration here.
+
 ## Additional user flows
 
 Use these after the core story when an audience wants to explore the memory workspace in more depth. Open the named tool through **More controls**, unless it is a primary Memory tab.
@@ -218,7 +228,7 @@ Use these after the core story when an audience wants to explore the memory work
 | --- | --- | --- |
 | Memory graph | Search a city or topic, pan, zoom, select a record, and open its details. | Shows the current active memories and inferred relationships. Viewport and dragged node positions are temporary. |
 | Retain | Enter a document ID, context, and one fact per line; choose **Retain facts**. | Creates reviewable records from the pasted lines and persists them through the API. Extraction is a local line split, not document understanding. |
-| Saved knowledge → Consolidate | Consolidate approved facts, then review the resulting patterns. | Groups approved facts by source and creates or updates patterns with supporting IDs. New or changed patterns require review. Needs observations enabled in Configuration. |
+| Review knowledge → Consolidate | Consolidate approved facts, then review the resulting patterns. | Groups approved facts by source and creates or updates patterns with supporting IDs. New or changed patterns require review. Needs observations enabled in Configuration. |
 | Mental models | Inspect the seeded **Retention priorities** model, refresh it, or create a model for a recurring question. | Saves an editable summary with source IDs. Refresh uses matching approved excerpts. Models with **Refresh after consolidation** enabled refresh when the user runs consolidation. |
 | Knowledge pages | Open **Service and retention intelligence**, inspect its evidence, edit it, or create a page. | Builds content from approved patterns and keeps source IDs. User-triggered refresh or consolidation updates generated content; there is no background publishing job. |
 | Documents | Select a source reference. | Filters its retained memories; it is not a repository of uploaded document bytes. |
@@ -241,15 +251,16 @@ The browser loads view models and saved state from FastAPI before rendering the 
 | Connect a source, configure MCP, or register file names | `PUT /api/context` validates and saves the context snapshot. Writes are serialized by the frontend adapter. At least one selected source is required to query, evaluate, or start an agent run. |
 | Ask a quick question | `POST /api/query` returns a deterministic answer. It does not create an agent run or save three memories. |
 | Run evaluations | `POST /api/evaluations` returns the prepared report. |
-| Ask Super Agent | `POST /api/runs` records the question, topic, start time, and recalled approved context. Revenue/sales/growth/opportunity words select the revenue topic first; network/latency/outage/performance words select network; other questions use churn. |
+| Review CAFE(S) | `POST /api/context/review` evaluates the task and synthetic context packet without changing workspace state. |
+| Ask Super Agent | `POST /api/runs` requires matching question/structured context, recomputes CAFE(S), and records the question, topic, start time, and recalled approved context. Revenue/sales/growth/opportunity words select the revenue topic first; network/latency/outage/performance words select network; other questions use churn. |
 | Follow progress | `GET /api/runs/{id}` advances a time-based 0–12 progress scale. The completion poll saves the three draft memories once and returns the updated memory list. |
 | Correct, approve, or invalidate memories in the UI | The browser applies review rules and sends a full snapshot to `PUT /api/memories`; FastAPI validates records and approved evidence dependencies. A separate `PATCH /api/memories/{id}` correction endpoint also exists. |
 | Save memory tools and configuration | Local tool handlers prepare results; `PUT /api/bank` saves configuration, models, directives, pages, webhook definitions, and operation entries. |
 | Reset the workspace | `POST /api/reset` restores fixture state in the active database. Use it only when its saved changes are disposable. |
 
-The default SQLite database is `backend/.data/studio.sqlite3`, created on startup. `STUDIO_DB` selects another path. Source selections, MCP configuration, file names, memories, approvals, and bank state survive restarts. Backend run records are stored too, but the UI does not restore its conversation list from them. Quick-query results, selected screens, graph positions, and unsent text are temporary UI state.
+The default SQLite database is `backend/.data/studio.sqlite3`, created on startup. `STUDIO_DB` selects another path. Source selections, MCP configuration, file names, memories, approvals, and bank state survive restarts. Backend run records are stored too; this browser retains the latest run ID and restores that run, not the full conversation history. Quick-query results, selected screens, graph positions, and unsent text are temporary UI state.
 
-Source selection is a configuration demonstration: keeping at least one source selected enables the mock workflows. It does not permission-filter the fixed answers, seed graph, or memory corpus. A real implementation must apply source authorization and tenant boundaries to retrieval and recall.
+Source selection is a configuration demonstration: keeping at least one source selected enables the mock workflows. The CAFE(S) review uses configured demo sources to include or exclude packet candidates. It does not implement enterprise permissions, change the fixed answer generator, or permission-filter the seed graph. A real implementation must apply source authorization and tenant boundaries to retrieval and recall.
 
 ## Questions to expect during a pitch
 
@@ -258,7 +269,7 @@ Source selection is a configuration demonstration: keeping at least one source s
 | Is it connected to our Databricks, Snowflake, or SharePoint account? | No. The catalog and source schemas are prepared examples. The selections and endpoint metadata are saved, but no external account is queried. |
 | Does memory train the model? | No. Approval makes retained context eligible for recall. This prototype has no model training or live LLM call. |
 | Why do different questions sometimes produce the same answer? | The backend selects among three fixed topics. Recalled memory can change the context panel while the prepared answer remains the same. |
-| Are the scores and business outcomes measured? | No. Readiness, evaluation scores, source sizes, answer metrics, and revenue exposure are fixture values. Memory overview counts are computed from the current records. |
+| Are the scores and business outcomes measured? | No. Evaluation scores, source sizes, answer metrics, and revenue exposure are fixture values. The context panel reports backend demo-rule results, rather than a universal readiness percentage. Memory overview counts are computed from the current records. |
 | Is this production authentication or a shared enterprise workspace? | No. The backend is a single-user local prototype without production authentication or tenant isolation. The profile and private-workspace labels are illustrative. |
 | What would a live implementation replace? | Source ingestion and authorization, search, agent orchestration, memory generation/consolidation, and webhook delivery. Keep the screen contracts and map real provider results through the adapter. |
 
@@ -272,7 +283,7 @@ Source selection is a configuration demonstration: keeping at least one source s
 - In Memory, wait for **All changes saved**. If saving fails, use **Retry saving** and inspect the API error before claiming the change persisted.
 - Expect counts to grow during rehearsals. Use the dedicated demo database or reset only a disposable workspace to return to the baseline.
 
-The local smoke check covered quick questions, fixture evaluations, graph/source inspection, agent completion, memory approval, configuration saving, and persistence after reload. The backend's 12 tests, five frontend self-checks, and production build passed during that check. The optional tools above are described from their implementation; this does not establish live enterprise integration coverage.
+The local smoke check covered quick questions, fixture evaluations, graph/source inspection, agent completion, memory approval, configuration saving, and persistence after reload. The backend tests and frontend self-checks cover the local contract; the investigation checks also exercise draft recovery, stale scope, and honest preview findings. The optional tools above are described from their implementation; this does not establish live enterprise integration coverage.
 
 ## Where the story and behavior come from
 
