@@ -1,22 +1,20 @@
 # Super Agent Insights
 
-An AT&T themed enterprise intelligence studio with a React UI and a separate FastAPI backend. Run both services locally. The backend uses deterministic mock data so the interface can be explored without enterprise credentials.
+Super Agent Insights is a workspace for AI conversations, connected context, searchable knowledge, and reviewed memory. The React frontend uses a separate FastAPI backend. This checkout uses sample data and prepared answers; it is not a deployed production service.
 
 ## Features
 
-- **Context Layer:** follow the Northeast churn story, define the task, configure sources, and see a backend CAFE(S) assessment.
-- **Knowledge Layer:** connect the evidence through searchable records, source inspection, pins, and a relationship graph.
-- **Super Agent:** start a scoped, server-reviewed demo investigation, inspect findings, and draft the next action.
-- **Memory:** review, correct, approve, or retire what the next question can reuse.
-- **CAFE(S):** a separate live demo page for prepared context, missing scope, stale evidence, noisy context, unsafe instructions, and draft memory. Inspect the backend decision and included/excluded candidates.
+- **Super Agent:** the default chat page. A centered welcome leads into a single composer and a scrolling conversation. Context settings, knowledge pins, memory, and CAFE(S) checks stay available as compact controls.
+- **Context Layer:** manage configured data sources, registered files, and MCP tools; try a question and inspect its local evaluation.
+- **Knowledge Layer:** search records, inspect source references, pin relevant evidence, or explore relationships.
+- **Memory:** review, correct, approve, or retire reusable records. Memories, Graph, and Sources are the main views.
+- **Context quality:** a separate, concise CAFE(S) assessment with expandable check details and included/excluded records.
 
-CAFE(S) checks execute through `POST /api/context/review` on synthetic local records. New agent runs require a structured task context and recompute the checks before starting; blocked cases create no run. The demo checks task fields, source-snapshot consistency, memory eligibility, approximate text size, duplicates, and a narrow instruction-quarantine rule. It does not connect the private LangSmith/Deep Agents/Hindsight backend or implement enterprise authentication. Task/action drafts remain browser-local. See the [backend handoff](docs/BACKEND_INTEGRATION.md#context-review-ui-and-private-backend-handoff) and [implementation plan](docs/CONTEXT_QUALITY_IMPLEMENTATION_PLAN.md).
+The original teal sidebar and Super Agent Insights suite branding are retained. Navigation is open-ended. There is no prescribed business story, journey rail, scenario switcher, evaluation dashboard, or action-planning workflow. Existing saved tasks are preserved; new chats contain no domain assumptions. Help and environment details are available from **Help & workspace info**.
 
-Graphs support canvas panning, draggable nodes, zoom, and clickable record details. Memory review preserves source evidence and keeps unapproved or invalidated knowledge out of recall.
+Context checks execute through `POST /api/context/review`. New agent runs require structured task context and repeat the checks server-side before starting. The UI always sends the normal `ready` scenario; fault-injection scenarios remain available only through the local API for testing. The checks enforce local sample rules, not factual accuracy or enterprise authorization.
 
-## Product walkthrough and demo narrative
-
-Read the [end-to-end product demo guide](docs/PRODUCT_DEMO_GUIDE.md) for a 10–15 minute pitch following Jordan's Northeast churn investigation: connect context, explore relationships, explain the service and revenue risk, review new memories, and reuse approved knowledge in the next conversation. It includes presenter talking points, exact mock-data figures, user instructions, the React/FastAPI/SQLite flow, and the boundaries between working prototype behavior and future integrations.
+The private LangSmith/Deep Agents/Hindsight backend is not connected. Task drafts are browser-local. See the [backend handoff](docs/BACKEND_INTEGRATION.md#context-review-ui-and-private-backend-handoff), [implementation plan](docs/CONTEXT_QUALITY_IMPLEMENTATION_PLAN.md), and [workspace guide](docs/PRODUCT_DEMO_GUIDE.md).
 
 ## Repository layout
 
@@ -36,7 +34,7 @@ backend/
                     Runtime and test dependencies
 docs/
   PRODUCT_DEMO_GUIDE.md
-                    Product narrative, user walkthrough, and presenter guide
+                    Workspace usage and sample-backend limitations
   BACKEND_INTEGRATION.md
                     Screen-by-screen backend wiring guide
 ```

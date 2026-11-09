@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import time
 from contextlib import asynccontextmanager
 from copy import deepcopy
@@ -9,8 +10,8 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
 from .models import BankUpdate, ContextUpdate, ContextReviewRequest, Correction, MemoryUpdate, Question, RunRequest
-from .context_quality import review_context
-from .service import now_iso, recall, recallable, run_memories, topic_for
+from .context_quality import SOURCE_CONNECTIONS, review_context
+from .service import evaluate_question, now_iso, recall, recallable, run_memories, topic_for
 from .store import Store
 
 DATA = Path(__file__).resolve().parents[1] / "data" / "fixtures.json"
@@ -109,14 +110,16 @@ def create_app(db_path: Path | None = None, run_step_seconds: float = .85) -> Fa
         question = body.question
         if not state["connections"]:
             raise HTTPException(409, "Connect a source first.")
-        if any(word in question.lower() for word in ["sources", "available"]):
+        inventory = bool(re.search(r"\b(sources?|connectors?)\b", question, re.I) and re.search(r"\b(which|what|list|available|connected)\b", question, re.I))
+        if inventory:
             source_map = {source["id"]: source for source in fixtures["sources"] + state["mcpServers"]}
             answer = "Your workspace includes " + str(len(state["connections"])) + " connected sources: " + ", ".join(source_map[key]["name"] for key in state["connections"]) + "."
         elif any(word in question.lower() for word in ["how many", "risk"]):
             answer = fixtures["testAnswer"]
         else:
             answer = fixtures["answers"][topic_for(question)]["summary"]
-        return {"answer": answer}
+        records = [record for record in fixtures["corpus"] if SOURCE_CONNECTIONS.get(record["source"]) in state["connections"]]
+        return {"answer": answer, "evaluation": evaluate_question(question, records, len(state["connections"]), inventory)}
 
     @app.post("/api/evaluations")
     def evaluations():

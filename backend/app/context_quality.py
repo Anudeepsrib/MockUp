@@ -59,7 +59,7 @@ def review_context(request: dict, state: dict, corpus: list[dict]) -> dict:
     unsafe = False
     unavailable = bool(unknown_pins)
     for candidate in candidates:
-        reason = "Included in the reviewed demo packet."
+        reason = "Included in the reviewed context."
         include = True
         if SUSPICIOUS_INSTRUCTION.search(candidate["content"]):
             unsafe, include, reason = True, False, "Quarantined: matches the demo's unsafe-instruction rule."
@@ -89,11 +89,12 @@ def review_context(request: dict, state: dict, corpus: list[dict]) -> dict:
         checks.append({"dimension": dimension, "result": "pass" if passed else "fail", "required": True,
                        "summary": summary, "method": method, "evidenceRefs": refs, **({"remedy": remedy} if remedy else {})})
 
-    check("Clarity", not missing, "Question, region, period, and metric are specified." if not missing else "Missing scope: " + ", ".join(missing) + ".", ["task:brief"], "Complete the task in Context Layer" if missing else None)
+    labels = {"objective": "task", "region": "scope", "period": "timeframe", "metric": "focus"}
+    check("Clarity", not missing, "Task, scope, timeframe, and focus are specified." if not missing else "Required context: " + ", ".join(labels[name] for name in missing) + ".", ["task:brief"], "Complete the task context in Super Agent" if missing else None)
     actionable = bool(brief["deliverable"].strip())
-    check("Actionability", actionable, "An expected outcome is defined for the read-only demo investigation." if actionable else "Define the output the investigation should produce.", ["task:outcome"], None if actionable else "Define the expected outcome")
+    check("Actionability", actionable, "An expected outcome is defined for this task." if actionable else "Define the result the task should produce.", ["task:outcome"], None if actionable else "Define the expected outcome")
     faithful = bool(source_items) and not stale and not unavailable
-    check("Fidelity", faithful, f"Selected source records match the active demo snapshot ({len(source_items)})." if faithful else "Evidence is missing, unavailable, or references an outdated demo snapshot.", [item["id"] for item in source_items], None if faithful else "Review source selection or reset the demo condition")
+    check("Fidelity", faithful, f"Selected source records match the current sample snapshot ({len(source_items)})." if faithful else "Evidence is missing, unavailable, or references an outdated sample snapshot.", [item["id"] for item in source_items], None if faithful else "Review source configuration and evidence selection")
     efficient = estimated_tokens <= TOKEN_BUDGET
     removed = len(items) - len(selected)
     check("Efficiency", efficient, f"Text estimate: {estimated_tokens} / {TOKEN_BUDGET} tokens. Candidates held back or removed: {removed}.", [item["id"] for item in selected], None if efficient else "Narrow the evidence selection")

@@ -10,7 +10,7 @@ export type ContextItem = {id:string;title:string;source:string;content:string;k
 export type ContextReview = {decision:'proceed'|'needs_input'|'blocked';checks:ContextCheck[];manifestId?:string;checkedAt?:string;mode?:'local_demo';scenario?:CafeScenario;evaluatedBrief?:TaskBrief;workspaceRevision?:number;items?:ContextItem[];metrics?:{candidates:number;included:number;excluded:number;memories:number;estimatedTokens:number;tokenBudget:number};limitations?:string[]};
 
 export function emptyInvestigation():InvestigationDraft {
-  return {brief:{objective:'What’s driving customer churn in the Northeast?',region:'Northeast',period:'Demo dataset coverage',metric:'Customer churn rate',deliverable:'Explain the evidence and propose a service recovery pilot.'},pinnedIds:[],action:{description:'',owner:'',due:'',measure:'',target:'',status:'Draft',outcome:''}};
+  return {brief:{objective:'',region:'',period:'',metric:'',deliverable:''},pinnedIds:[],action:{description:'',owner:'',due:'',measure:'',target:'',status:'Draft',outcome:''}};
 }
 
 const briefKeys = ['objective','region','period','metric','deliverable'] as const;
@@ -29,7 +29,7 @@ export function readInvestigation(raw:string|null):InvestigationDraft {
 }
 
 export function scopedQuestion(brief:TaskBrief):string {
-  return `${brief.objective.trim()}\n\nInvestigation scope\nRegion: ${brief.region.trim()}\nPeriod: ${brief.period.trim()}\nMetric: ${brief.metric.trim()}\nExpected outcome: ${brief.deliverable.trim()}`;
+  return `${brief.objective.trim()}\n\nInvestigation scope\nScope: ${brief.region.trim()}\nTimeframe: ${brief.period.trim()}\nFocus: ${brief.metric.trim()}\nExpected outcome: ${brief.deliverable.trim()}`;
 }
 
 export function sameBrief(a:TaskBrief,b:TaskBrief):boolean {
@@ -40,7 +40,7 @@ export function sameBrief(a:TaskBrief,b:TaskBrief):boolean {
 export function previewChecks(brief:TaskBrief):ContextCheck[] {
   const scoped=[brief.objective,brief.region,brief.period,brief.metric].every(value=>value.trim());
   return [
-    {dimension:'Clarity',result:scoped?'pass':'fail',required:false,summary:scoped?'Question, region, period, and metric are specified.':'Complete the question, region, period, and metric.',remedy:scoped?undefined:'Edit task brief'},
+    {dimension:'Clarity',result:scoped?'pass':'fail',required:false,summary:scoped?'Task, scope, timeframe, and focus are specified.':'Complete the task, scope, timeframe, and focus.',remedy:scoped?undefined:'Edit task context'},
     {dimension:'Actionability',result:brief.deliverable.trim()?'pass':'fail',required:false,summary:brief.deliverable.trim()?'The expected outcome is defined.':'Describe the result you need.',remedy:brief.deliverable.trim()?undefined:'Define the outcome'},
     {dimension:'Fidelity',result:'unknown',required:false,summary:'Source freshness, coverage, and contradictions await backend checks.'},
     {dimension:'Efficiency',result:'unknown',required:false,summary:'Context selection and token use await backend checks.'},

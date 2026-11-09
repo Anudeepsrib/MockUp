@@ -24,11 +24,12 @@ const context=serial.saveContext({connections:[],files:[],mcpServers:[]});
 const memories=serial.saveMemories([]);
 const run=serial.startRun('Question',{...reviewPayload,brief:{...reviewPayload.brief,objective:'Question'}});
 const reviewed=serial.reviewContext(reviewPayload);
+const queried=serial.query('Check the updated sources');
 await Promise.resolve();
 assert.deepEqual(ordered,['/api/context']);
 release();
-await Promise.all([context,memories,run,reviewed]);
-assert.deepEqual(ordered,['/api/context','/api/memories','/api/runs','/api/context/review']);
+await Promise.all([context,memories,run,reviewed,queried]);
+assert.deepEqual(ordered,['/api/context','/api/memories','/api/runs','/api/context/review','/api/query']);
 
 let attempt=0;
 const retry=createHttpStudioApi('/api',async()=>++attempt===1?json({detail:'Review source evidence first.'},409):json(state));
@@ -47,3 +48,7 @@ await contextClient.startRun('Why churn?',reviewPayload);
 assert.equal(contextCalls[0].url,'/api/context/review');
 assert.deepEqual(contextCalls[0].body,reviewPayload);
 assert.deepEqual(contextCalls[1].body,{question:'Why churn?',context:reviewPayload});
+
+const evaluatedResult={answer:'Sample answer',evaluation:{question:'Question',mode:'local_demo',checks:[{name:'Answer grounding',result:'unknown',summary:'Not verified'}],matchedRecords:[]}};
+const evaluatedClient=createHttpStudioApi('/api',async()=>json(evaluatedResult));
+assert.deepEqual(await evaluatedClient.query('Question'),evaluatedResult,'Per-question findings must reach the UI without being replaced by suite scores');

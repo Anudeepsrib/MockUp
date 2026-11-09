@@ -3,7 +3,6 @@ import {initializeApi} from './lib/api';
 import './globals.css';
 import './refinement.css';
 import './product.css';
-import './narrative.css';
 
 const root=createRoot(document.getElementById('root')!);
 

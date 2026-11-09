@@ -36,6 +36,29 @@ def recall(memories: list[dict], question: str, limit: int = 2) -> list[dict]:
     return [row[1] for row in ranked[:limit]]
 
 
+def evaluate_question(question: str, records: list[dict], source_count: int, inventory: bool = False) -> dict:
+    matches = [] if inventory else recall(records, question, limit=4)
+    requested = set(re.findall(r"\b(?:19|20)\d{2}\b", question))
+    available = set(re.findall(r"\b(?:19|20)\d{2}\b", " ".join(record["content"] for record in records)))
+    missing = sorted(requested - available)
+    return {
+        "question": question, "mode": "local_demo",
+        "checks": [
+            {"name": "Context match", "result": "pass" if inventory or matches else "fail",
+             "summary": f"Lists the {source_count} currently configured sources." if inventory else
+                        f"{len(matches)} sample records matched question keywords; relevance is not verified." if matches else
+                        "No keyword matches in the configured sample sources. The prepared answer may not address this question."},
+            {"name": "Requested years", "result": "fail" if missing else "pass" if requested else "not_applicable",
+             "summary": "Requested years absent from sample record text: " + ", ".join(missing) + "." if missing else
+                        "Requested years appear in sample record text; full coverage is not verified." if requested else
+                        "No explicit year requested."},
+            {"name": "Answer grounding", "result": "unknown",
+             "summary": "Not verified. This is a prepared answer, not a live RAG result or a source-passage evaluation."},
+        ],
+        "matchedRecords": [{"id": record["id"], "title": record["title"], "source": record["source"]} for record in matches],
+    }
+
+
 def run_memories(run: dict, answer: dict) -> list[dict]:
     topic = run["topic"]
     titles = {"churn": "Northeast churn baseline", "network": "Network experience baseline", "revenue": "Revenue opportunity baseline"}

@@ -100,6 +100,37 @@ def test_query_and_evaluations_use_backend_fixtures(client):
     assert len(report["metrics"]) == 3
 
 
+def test_question_evaluation_flags_unsupported_questions_and_years(client):
+    question = "What is the weather forecast tomorrow?"
+    report = client.post("/api/query", json={"question": question}).json()["evaluation"]
+    assert report["question"] == question
+    checks = {check["name"]: check for check in report["checks"]}
+    assert checks["Context match"]["result"] == "fail"
+    assert checks["Answer grounding"]["result"] == "unknown"
+    assert not report["matchedRecords"]
+    historical = client.post("/api/query", json={"question": "Explain churn in the Southwest in 2021."}).json()["evaluation"]
+    assert next(check for check in historical["checks"] if check["name"] == "Requested years")["result"] == "fail"
+    current = client.post("/api/query", json={"question": "Explain churn in 2026."}).json()["evaluation"]
+    assert next(check for check in current["checks"] if check["name"] == "Requested years")["result"] == "pass"
+
+
+def test_question_evaluation_uses_configured_sources_and_does_not_write(client):
+    client.put("/api/context", json={"connections": ["databricks"], "files": [], "mcpServers": []})
+    before = client.get("/api/workspace").json()
+    result = client.post("/api/query", json={"question": "How is network performance in the available records?"}).json()
+    assert "repeat disruptions" in result["answer"]
+    assert result["evaluation"]["matchedRecords"]
+    assert all(record["source"] in {"customer_360", "network_events", "support_tickets"} for record in result["evaluation"]["matchedRecords"])
+    assert client.get("/api/workspace").json() == before
+    client.put("/api/context", json={"connections": ["local"], "files": [], "mcpServers": []})
+    assert not client.post("/api/query", json={"question": "Explain customer churn."}).json()["evaluation"]["matchedRecords"]
+    inventory = client.post("/api/query", json={"question": "Which sources are connected?"}).json()
+    assert "Local files" in inventory["answer"]
+    assert inventory["evaluation"]["checks"][0]["result"] == "pass"
+    client.put("/api/context", json={"connections": [], "files": [], "mcpServers": []})
+    assert client.post("/api/query", json={"question": "Explain churn."}).status_code == 409
+
+
 def test_sqlite_survives_server_restart(tmp_path):
     path = tmp_path / "persistent.sqlite3"
     with TestClient(create_app(path)) as first:

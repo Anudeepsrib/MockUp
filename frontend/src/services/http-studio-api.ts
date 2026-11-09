@@ -1,5 +1,5 @@
 import type {ContextReview} from '../lib/investigation';
-import type {StudioApi,StudioState,Bootstrap,AgentRun} from '../lib/contracts';
+import type {StudioApi,StudioState,Bootstrap,AgentRun,QueryResult} from '../lib/contracts';
 
 export type StudioFetch=(input:RequestInfo|URL,init?:RequestInit)=>Promise<Response>;
 
@@ -38,7 +38,7 @@ export function createHttpStudioApi(baseUrl:string,fetcher:StudioFetch=globalThi
     startRun:async (question,context)=>{await writes;return request<AgentRun>('/runs','POST',{question,context});},
     reviewContext:async context=>{await writes;return request<ContextReview>('/context/review','POST',context);},
     pollRun:id=>request<AgentRun>(`/runs/${id}`),
-    query:question=>request<{answer:string}>('/query','POST',{question}),
+    query:async question=>{await writes;return request<QueryResult>('/query','POST',{question});},
     evaluate:()=>request<Bootstrap['evaluations']>('/evaluations','POST'),
     reset:async()=>{await writes;return request<StudioState>('/reset','POST');},
   };
